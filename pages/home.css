@@ -1,0 +1,49 @@
+.eifu-gif {
+    position: absolute;
+    top: 60px;
+    left: 35px;
+    place-items: center;
+}
+
+.highlighted {
+    color: #D32F2F;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1400px;
+    place-items: center;
+    place-content: center;
+    padding: 3rem 0rem;
+}
+
+.overlap-img {
+    position: relative;
+    width: fit-content;
+    place-items: center;
+}
+
+.getStartedFree {
+    background-color: #D32F2F;
+}
+
+.exoloreFeatures {
+    background-color: white;
+    color: #D32F2F;
+    border-color: #D32F2F;
+}
+
+.grey-bg {
+    background-color: #F3F3F3;
+    text-align: center;
+    justify-items: center;
+}
+
+.grey-card {
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+}

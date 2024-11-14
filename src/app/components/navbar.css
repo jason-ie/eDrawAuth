@@ -1,0 +1,33 @@
+.navbar-bg{
+    background-color: white;
+}
+.navbar{
+  max-width: 1400px !important;
+
+}
+.navbar-bg a {
+    text-decoration: none !important;
+    color: #3A3A3A;
+    transition: color 0.3s ease;
+  }
+
+  .logo{
+    height: 3rem;
+    margin-top: 8px;
+
+  }
+
+  .active-link {
+    color: #D32F2F; 
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+
+
+.navbar-bg a:hover {
+    color: #A1A4AC; /* Hover color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
