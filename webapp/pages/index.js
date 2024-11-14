@@ -3,50 +3,57 @@ import Link from 'next/link';
 import { useEdrawData } from '../src/app/utils/EdrawDataContext';
 import './home.css';
 import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  Container,
-  MenuItem,
-  Grid,
-  Button,
-  Stack,
-  TextField
+    AppBar,
+    Box,
+    Toolbar,
+    IconButton,
+    Typography,
+    Menu,
+    Container,
+    MenuItem,
+    Grid,
+    Button,
+    Stack,
+    TextField
 } from '../src/app/components/muiComponents';
 
 export default function Home() {
-  const edrawData = useEdrawData();
+    const edrawData = useEdrawData();
 
-  if (!edrawData) return <div>Loading...</div>;
-  const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = edrawData;
-  const titleParts = edrawTitle.split("e-Draw");
+    if (!edrawData) return <div>Loading...</div>;
+    const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = edrawData;
+    const titleParts = edrawTitle.split("e-Draw");
 
-  return (
-    <>
-      <Container className='container'>
-                <Grid container rowSpacing={10} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    <Grid size={7}>
-                        <h1>
-                            {titleParts.map((part, index) => (
-                                <span key={index}>
-                                    {part}
-                                    {index < titleParts.length - 1 && (
-                                        <span className="highlighted">e-Draw</span>
-                                    )}
-                                </span>
-                            ))}
-                        </h1>
-                        {Feature1}
-                        <h3>{Description}</h3>
+    return (
+        <>
+            <Container className='container'>
+                <Grid container rowSpacing={10} columnSpacing={{ xs: 1, sm: 2, md: 3 }} className="grid1">
+                    <Grid container size={7} rowSpacing={1}>
+                        <Grid>
+                            <h1>
+                                {titleParts.map((part, index) => (
+                                    <span key={index}>
+                                        {part}
+                                        {index < titleParts.length - 1 && (
+                                            <span className="highlighted">e-Draw</span>
+                                        )}
+                                    </span>
+                                ))}
+                            </h1>
+                        </Grid>
+                        <Grid>
+                            <h3>{Description}</h3>
+                        </Grid>
+                        <Grid>
+                            <Button variant="outlined" className="exoloreFeatures">Explore Features</Button>
 
-                        <Button variant="outlined" className="exoloreFeatures">Explore Features</Button>
+                            <Button variant="contained" className="getStartedFree">
+                                Get Started For
+                            </Button>
+                        </Grid>
 
-                        <Button variant="contained" className="getStartedFree">
-                            Get Started For
-                        </Button>
+
+
                     </Grid>
                     <Grid size={4} className='overlap-img'>
                         <img src="/Vector2.png" alt="Vector 2" />
@@ -59,12 +66,27 @@ export default function Home() {
                     <Grid size={5}>
                         <img src="/vector4.png" alt="Vector 2" />
                     </Grid>
-                    <Grid size={7}>
-                        <p>
-                            {WhyeDraw}
-                            {WhyeDrawDesc}
-                            {WhyeDrawSubHeading}
-                        </p>
+                    <Grid container size={7} rowSpacing={2}>
+                        <Grid size={12}>
+                            <h2>
+                                {WhyeDraw}
+                            </h2>
+                        </Grid>
+                        <Grid size={12}>
+                            <hr className='hr'>
+                            </hr>
+                        </Grid>
+                        <Grid size={12}>
+                            <h3>
+                                {WhyeDrawSubHeading}
+                            </h3>
+                        </Grid >
+                        <Grid size={12}>
+
+                            <p>
+                                {WhyeDrawDesc}
+                            </p>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Box>
@@ -183,6 +205,6 @@ export default function Home() {
                     </Grid>
                 </Container>
             </Grid>
-    </>
-  );
+        </>
+    );
 }

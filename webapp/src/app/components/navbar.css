@@ -31,3 +31,10 @@
     text-decoration: none;
     transition: color 0.3s ease;
 }
+.signupbtn{
+  align-content: center;
+}
+.signupbtnclr{
+  background-color: #D32F2F;
+  color: white;
+}

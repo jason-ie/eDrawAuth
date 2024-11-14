@@ -14,7 +14,7 @@
     max-width: 1400px;
     place-items: center;
     place-content: center;
-    padding: 3rem 0rem;
+    padding: 2.5rem 0rem;
 }
 
 .overlap-img {
@@ -31,6 +31,7 @@
     background-color: white;
     color: #D32F2F;
     border-color: #D32F2F;
+    margin-right: 5rem;
 }
 
 .grey-bg {
@@ -46,4 +47,15 @@
     margin: auto;
     padding: 2rem;
     text-align: center;
+}
+.hr{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 20rem;
+    justify-self: center;
+}
+
+.grid1{
+    padding-top: 4rem;
 }

@@ -9,6 +9,7 @@ import {
     Typography,
     Container,
 } from '../components/muiComponents';
+import Button from './Button';
 
 const navLinks = [
     { label: 'Home', path: '/' },
@@ -44,6 +45,9 @@ function ResponsiveAppBar() {
                                 </Typography>
                             </Link>
                         ))}
+                        <Link className="signupbtn" href="/signup">
+                        <Button className="signupbtnclr">Sign Up</Button>
+                        </Link>
                     </Box>
                 </Toolbar>
             </Container>
