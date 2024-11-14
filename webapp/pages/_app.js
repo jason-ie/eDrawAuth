@@ -1,26 +1,19 @@
+// pages/_app.js
 import Footer from "@/app/components/footer";
 import Navbar from "../src/app/components/Navbar";
 import { Provider } from 'react-redux';
 import store from '../src/app/redux/store';
+import { EdrawDataProvider } from '../src/app/utils/EdrawDataContext';
 import "../src/app/global.css";
 import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  Container,
-  MenuItem,
-  Grid,
-  Button,
-  Stack
+  Grid
 } from '../src/app/components/muiComponents';
+
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
- 
-    <Grid container rowSpacing={6}>
+      <EdrawDataProvider>
+      <Grid container rowSpacing={6}>
       <Grid size={12}>
         <Navbar />
       </Grid>
@@ -31,6 +24,7 @@ function MyApp({ Component, pageProps }) {
         <Footer />
       </Grid>
     </Grid>
+      </EdrawDataProvider>
     </Provider>
   );
 }

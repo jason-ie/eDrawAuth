@@ -1,40 +1,32 @@
+// pages/index.js
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { getedrawData } from '../src/app/utils/api';
+import { useEdrawData } from '../src/app/utils/EdrawDataContext';
 import './home.css';
 import {
-    AppBar,
-    Box,
-    Toolbar,
-    IconButton,
-    Typography,
-    Menu,
-    Container,
-    MenuItem,
-    Grid,
-    Button,
-    Stack,
-    TextField
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  MenuItem,
+  Grid,
+  Button,
+  Stack,
+  TextField
 } from '../src/app/components/muiComponents';
+
 export default function Home() {
-    const [edrawData, setEdrawData] = useState(null);
-    useEffect(() => {
-        async function fetchData() {
-            const data = await getedrawData("/api/home-page");
-            setEdrawData(data.data);
-            console.log(data)
-        }
-        fetchData();
-    }, []);
+  const edrawData = useEdrawData();
 
-    if (!edrawData) return <div>Loading...</div>;
-    const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = edrawData;
-    const titleParts = edrawTitle.split("e-Draw");
-    console.log("Feature1 component data:", edrawData?.attributes?.feature1);
+  if (!edrawData) return <div>Loading...</div>;
+  const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = edrawData;
+  const titleParts = edrawTitle.split("e-Draw");
 
-    return (
-        <>
-            <Container className='container'>
+  return (
+    <>
+      <Container className='container'>
                 <Grid container rowSpacing={10} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     <Grid size={7}>
                         <h1>
@@ -191,7 +183,6 @@ export default function Home() {
                     </Grid>
                 </Container>
             </Grid>
-
-        </>
-    );
+    </>
+  );
 }
