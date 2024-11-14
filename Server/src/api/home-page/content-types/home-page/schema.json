@@ -1,0 +1,77 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "vector2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "WhyeDraw": {
+      "type": "string"
+    },
+    "WhyeDrawDesc": {
+      "type": "text"
+    },
+    "WhyeDrawSubHeading": {
+      "type": "string"
+    },
+    "Feature1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card.test"
+    },
+    "Feature1Heading": {
+      "type": "string"
+    },
+    "FeatureDesc1": {
+      "type": "text"
+    },
+    "Feature2heading": {
+      "type": "string"
+    },
+    "FeatureDesc2": {
+      "type": "text"
+    },
+    "Feature3Heading": {
+      "type": "string"
+    },
+    "FeatureDesc3": {
+      "type": "text"
+    },
+    "Feature4Heading": {
+      "type": "string"
+    },
+    "FeatureDesc4": {
+      "type": "text"
+    },
+    "Feature5Heading": {
+      "type": "string"
+    },
+    "FeatureDesc5": {
+      "type": "text"
+    }
+  }
+}

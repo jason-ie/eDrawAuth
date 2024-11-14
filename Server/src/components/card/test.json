@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_card_tests",
+  "info": {
+    "displayName": "Test"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}
