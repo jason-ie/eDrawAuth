@@ -42,7 +42,7 @@ export default function Home() {
                             </h1>
                         </Grid>
                         <Grid>
-                            <h3>{Description}</h3>
+                            <div className="font-18">{Description}</div>
                         </Grid>
                         <Grid>
                             <Button variant="outlined" className="exoloreFeatures">Explore Features</Button>
@@ -62,11 +62,11 @@ export default function Home() {
                 </Grid>
             </Container>
             <Box className="grey-bg" >
-                <Grid container className='container'>
+                <Grid container className='container '>
                     <Grid size={5}>
                         <img src="/vector4.png" alt="Vector 2" />
                     </Grid>
-                    <Grid container size={7} rowSpacing={2}>
+                    <Grid container className="img-center" size={7} rowSpacing={2}>
                         <Grid size={12}>
                             <h2>
                                 {WhyeDraw}
@@ -83,7 +83,7 @@ export default function Home() {
                         </Grid >
                         <Grid size={12}>
 
-                            <p>
+                            <p className="font-18">
                                 {WhyeDrawDesc}
                             </p>
                         </Grid>
@@ -92,23 +92,23 @@ export default function Home() {
             </Box>
             <Container className='container'>
                 <Grid className="grey-card" container rowSpacing={1} columnSpacing={1}>
-                    <Grid item size={12}>
+                    <Grid size={12}>
                         <h2>Features</h2>
                     </Grid>
                     <Grid size={4}>
                         <h4>Barcode Generation</h4>
                         <img src="/vector5.png" alt="Vector 2" />
-                        <div>Built-in barcode creation with support for a variety of formats ensures compliance and efficiency</div>
+                        <div className='features-text'>Built-in barcode creation with support for a variety of formats ensures compliance and efficiency</div>
                     </Grid>
                     <Grid size={4}>
                         <h4>Barcode Generation</h4>
                         <img src="/vector6.png" alt="Vector 2" />
-                        <div>Built-in barcode creation with support for a variety of formats ensures compliance and efficiency</div>
+                        <div className='features-text'>Built-in barcode creation with support for a variety of formats ensures compliance and efficiency</div>
                     </Grid>
                     <Grid size={4}>
                         <h4>Barcode Generation</h4>
-                        <img src="/vector7.png" alt="Vector 2" />
-                        <div>Built-in barcode creation with support for a variety of formats ensures compliance and efficiency</div>
+                        <img className='share-img' src="/vector7.png" alt="Vector 2" />
+                        <div className='features-text'>Built-in barcode creation with support for a variety of formats ensures compliance and efficiency</div>
 
                     </Grid>
                 </Grid>
@@ -116,14 +116,25 @@ export default function Home() {
             <Grid >
                 <Container className='container'>
                     <Grid container className='container'>
-                        <Grid size={7}>
-                            <p>
-                                {WhyeDraw}
-                                {WhyeDrawDesc}
-                                {WhyeDrawSubHeading}
-                            </p>
+                        <Grid container size={7} className="font-18" rowSpacing={4}>
+                            <Grid size={12}>
+                                <h2> {WhyeDraw}</h2>
+                                <hr className='hr2'></hr>
+                            </Grid>
+                            <Grid>
+                            <h4>{WhyeDrawSubHeading}</h4>
+                            </Grid>
+                            <Grid>
+                            {WhyeDrawDesc}
+                            </Grid>
+                            <Grid>
+                            <h4>{WhyeDrawSubHeading}</h4>
+                            </Grid>
+                            <Grid>
+                            {WhyeDrawDesc}
+                            </Grid>
                         </Grid>
-                        <Grid size={5}>
+                        <Grid size={5}  className="img-center">
                             <img src="/vector8.png" alt="Vector 2" />
                         </Grid>
 
@@ -133,18 +144,30 @@ export default function Home() {
             </Grid>
             <Grid className="grey-bg">
                 <Container className='container'>
-                    <Grid container className='container'>
-                        <Grid size={7}>
-                            <p>
-                                {WhyeDraw}
-                                {WhyeDrawDesc}
-                                {WhyeDrawSubHeading}
-                            </p>
-                        </Grid>
-                        <Grid size={5}>
-                            <img src="/vector9.png" alt="Vector 2" />
+                <Grid container className='container'>
+                <Grid size={5}>
+                            <img  className="img-center" src="/vector9.png" alt="Vector 2" />
                         </Grid>
 
+                        <Grid container size={7} className="font-18" rowSpacing={4}>
+                            <Grid  size={12}>
+                                <h2 > {WhyeDraw}</h2>
+                                <hr className='hr2'></hr>
+                            </Grid>
+                            <Grid>
+                            <h4>{WhyeDrawSubHeading}</h4>
+                            </Grid>
+                            <Grid>
+                            {WhyeDrawDesc}
+                            </Grid>
+                            <Grid>
+                            <h4>{WhyeDrawSubHeading}</h4>
+                            </Grid>
+                            <Grid>
+                            {WhyeDrawDesc}
+                            </Grid>
+                        </Grid>
+                       
                     </Grid>
 
                 </Container>
@@ -152,15 +175,26 @@ export default function Home() {
             <Grid >
                 <Container className='container'>
                     <Grid container className='container'>
-                        <Grid size={5}>
-                            <img src="/vector10.png" alt="Vector 2" />
+                        <Grid size={5} className="img-center">
+                            <img  className="img-center"  src="/vector10.png" alt="Vector 2" />
                         </Grid>
-                        <Grid size={7}>
-                            <p>
-                                {WhyeDraw}
-                                {WhyeDrawDesc}
-                                {WhyeDrawSubHeading}
-                            </p>
+                        <Grid container size={7} className="font-18" rowSpacing={4}>
+                            <Grid size={12}>
+                                <h2> {WhyeDraw}</h2>
+                                <hr className='hr2'></hr>
+                            </Grid>
+                            <Grid>
+                            <h4>{WhyeDrawSubHeading}</h4>
+                            </Grid>
+                            <Grid>
+                            {WhyeDrawDesc}
+                            </Grid>
+                            <Grid>
+                            <h4>{WhyeDrawSubHeading}</h4>
+                            </Grid>
+                            <Grid>
+                            {WhyeDrawDesc}
+                            </Grid>
                         </Grid>
 
 
@@ -168,10 +202,10 @@ export default function Home() {
 
                 </Container>
             </Grid>
-            <Grid className="grey-bg">
+            <Grid className="grey-bg font-18" >
                 <Container className='container'>
-                    <Grid container spacing={20} sx={{ p: 12 }}>
-                        <Grid size={6}>
+                    <Grid  container spacing={1} >
+                        <Grid className="align-content-center"  size={6}>
                             Cloud Collaboration
 
                             Multiple users can work on the same document in real-time, with full version control.
@@ -179,19 +213,19 @@ export default function Home() {
 
                             Maintain full control over your data with on-premise hosting, meeting the needs of high-security environments like life sciences and pharmaceuticals.
                         </Grid>
-                        <Grid size={6}>
-                            <img src="/vector11.png" alt="Vector 2" />
+                        <Grid size={6} className='img-center'>
+                            <img  src="/vector11.png" alt="Vector 2" />
                         </Grid>
-                        <Grid size={6}>
+                        <Grid size={6} className='img-center'>
                             <img src="/vector12.png" alt="Vector 2" />
                         </Grid>
-                        <Grid size={6}>
+                        <Grid  className="align-content-center" size={6}>
                             Multiple users can work on the same document in real-time, with full version control.
                             On-Premise Control
 
                             Maintain full control over your data with on-premise hosting, meeting the needs of high-security environments like life sciences and pharmaceuticals.
                         </Grid>
-                        <Grid size={6}>
+                        <Grid className="align-content-center" size={6}>
                             Cloud Collaboration
 
                             Multiple users can work on the same document in real-time, with full version control.
@@ -199,7 +233,7 @@ export default function Home() {
 
                             Maintain full control over your data with on-premise hosting, meeting the needs of high-security environments like life sciences and pharmaceuticals.
                         </Grid>
-                        <Grid size={6}>
+                        <Grid size={6} className='img-center'>
                             <img src="/vector13.png" alt="Vector 2" />
                         </Grid>
                     </Grid>

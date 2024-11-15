@@ -36,7 +36,7 @@
 
 .grey-bg {
     background-color: #F3F3F3;
-    text-align: center;
+    /* text-align: center; */
     justify-items: center;
 }
 
@@ -58,4 +58,32 @@
 
 .grid1{
     padding-top: 4rem;
+}
+
+.share-img{
+    height: 200px;
+}
+
+.hr2{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 20rem;
+    margin-top: 1rem;
+}
+.img-center{
+    text-align: center;
+}
+
+.align-content-center{
+    align-content: center ;
+}
+
+.features-text{
+    width: 225px; 
+    text-align: center; 
+    margin: 1rem auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
 }
