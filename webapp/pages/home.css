@@ -55,7 +55,14 @@
     width: 20rem;
     justify-self: center;
 }
-
+.Features-hr{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 10rem;
+    justify-self: center;
+    margin: 1rem 0rem;
+}
 .grid1{
     padding-top: 4rem;
 }

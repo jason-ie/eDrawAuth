@@ -93,7 +93,9 @@ export default function Home() {
             <Container className='container'>
                 <Grid className="grey-card" container rowSpacing={1} columnSpacing={1}>
                     <Grid size={12}>
+
                         <h2>Features</h2>
+                        <hr className='Features-hr'></hr>
                     </Grid>
                     <Grid size={4}>
                         <h4>Barcode Generation</h4>
@@ -122,19 +124,19 @@ export default function Home() {
                                 <hr className='hr2'></hr>
                             </Grid>
                             <Grid>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                                <h4>{WhyeDrawSubHeading}</h4>
                             </Grid>
                             <Grid>
-                            {WhyeDrawDesc}
+                                {WhyeDrawDesc}
                             </Grid>
                             <Grid>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                                <h4>{WhyeDrawSubHeading}</h4>
                             </Grid>
                             <Grid>
-                            {WhyeDrawDesc}
+                                {WhyeDrawDesc}
                             </Grid>
                         </Grid>
-                        <Grid size={5}  className="img-center">
+                        <Grid size={5} className="img-center">
                             <img src="/vector8.png" alt="Vector 2" />
                         </Grid>
 
@@ -144,30 +146,30 @@ export default function Home() {
             </Grid>
             <Grid className="grey-bg">
                 <Container className='container'>
-                <Grid container className='container'>
-                <Grid size={5}>
-                            <img  className="img-center" src="/vector9.png" alt="Vector 2" />
+                    <Grid container className='container'>
+                        <Grid size={5}>
+                            <img className="img-center" src="/vector9.png" alt="Vector 2" />
                         </Grid>
 
                         <Grid container size={7} className="font-18" rowSpacing={4}>
-                            <Grid  size={12}>
+                            <Grid size={12}>
                                 <h2 > {WhyeDraw}</h2>
                                 <hr className='hr2'></hr>
                             </Grid>
                             <Grid>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                                <h4>{WhyeDrawSubHeading}</h4>
                             </Grid>
                             <Grid>
-                            {WhyeDrawDesc}
+                                {WhyeDrawDesc}
                             </Grid>
                             <Grid>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                                <h4>{WhyeDrawSubHeading}</h4>
                             </Grid>
                             <Grid>
-                            {WhyeDrawDesc}
+                                {WhyeDrawDesc}
                             </Grid>
                         </Grid>
-                       
+
                     </Grid>
 
                 </Container>
@@ -176,7 +178,7 @@ export default function Home() {
                 <Container className='container'>
                     <Grid container className='container'>
                         <Grid size={5} className="img-center">
-                            <img  className="img-center"  src="/vector10.png" alt="Vector 2" />
+                            <img className="img-center" src="/vector10.png" alt="Vector 2" />
                         </Grid>
                         <Grid container size={7} className="font-18" rowSpacing={4}>
                             <Grid size={12}>
@@ -184,16 +186,16 @@ export default function Home() {
                                 <hr className='hr2'></hr>
                             </Grid>
                             <Grid>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                                <h4>{WhyeDrawSubHeading}</h4>
                             </Grid>
                             <Grid>
-                            {WhyeDrawDesc}
+                                {WhyeDrawDesc}
                             </Grid>
                             <Grid>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                                <h4>{WhyeDrawSubHeading}</h4>
                             </Grid>
                             <Grid>
-                            {WhyeDrawDesc}
+                                {WhyeDrawDesc}
                             </Grid>
                         </Grid>
 
@@ -204,8 +206,10 @@ export default function Home() {
             </Grid>
             <Grid className="grey-bg font-18" >
                 <Container className='container'>
-                    <Grid  container spacing={1} >
-                        <Grid className="align-content-center"  size={6}>
+                    <h2>Benefits</h2>
+                    <hr className='Features-hr'></hr>
+                    <Grid container spacing={1} >
+                        <Grid className="align-content-center" size={6}>
                             Cloud Collaboration
 
                             Multiple users can work on the same document in real-time, with full version control.
@@ -214,12 +218,12 @@ export default function Home() {
                             Maintain full control over your data with on-premise hosting, meeting the needs of high-security environments like life sciences and pharmaceuticals.
                         </Grid>
                         <Grid size={6} className='img-center'>
-                            <img  src="/vector11.png" alt="Vector 2" />
+                            <img src="/vector11.png" alt="Vector 2" />
                         </Grid>
                         <Grid size={6} className='img-center'>
                             <img src="/vector12.png" alt="Vector 2" />
                         </Grid>
-                        <Grid  className="align-content-center" size={6}>
+                        <Grid className="align-content-center" size={6}>
                             Multiple users can work on the same document in real-time, with full version control.
                             On-Premise Control
 
