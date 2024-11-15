@@ -10,26 +10,35 @@ import {
     Container,
 } from '../components/muiComponents';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
 function ResponsiveAppBar() {
     const router = useRouter();
+
     return (
-        <AppBar className='navbar-bg' position="fixed" elevation={0}>
-            <Container className='navbar'>
+        <AppBar className="navbar-bg" position="fixed" elevation={0}>
+            <Container className="navbar">
                 <Toolbar disableGutters>
-                    {/* Logo on the left */}
                     <Box sx={{ flexGrow: 1 }}>
                         <Link href="/" passHref>
-                            <img className="logo" src="/e-draw_logo.png" alt="e-Draw Logo" />
+                            <img
+                                className="logo"
+                                src="/e-draw_logo.png"
+                                alt="e-Draw Logo"
+                            />
                         </Link>
                     </Box>
 
-                    {/* Navigation links on the right */}
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', flexGrow: 1 }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            flexGrow: 1,
+                        }}
+                    >
                         <Link href="/" passHref>
                             <Typography
-                                className={router.pathname === '/' ? 'active-link' : ''}
+                                className={
+                                    router.pathname === '/' ? 'active-link' : ''
+                                }
                                 sx={{ my: 2, mx: 2 }}
                             >
                                 Home
@@ -37,7 +46,11 @@ function ResponsiveAppBar() {
                         </Link>
                         <Link href="/features" passHref>
                             <Typography
-                                className={router.pathname === '/features' ? 'active-link' : ''}
+                                className={
+                                    router.pathname === '/features'
+                                        ? 'active-link'
+                                        : ''
+                                }
                                 sx={{ my: 2, mx: 2 }}
                             >
                                 Features
@@ -45,50 +58,38 @@ function ResponsiveAppBar() {
                         </Link>
                         <Link href="/about" passHref>
                             <Typography
-                                className={router.pathname === '/about' ? 'active-link' : ''}
+                                className={
+                                    router.pathname === '/about'
+                                        ? 'active-link'
+                                        : ''
+                                }
                                 sx={{ my: 2, mx: 2 }}
                             >
                                 About Us
                             </Typography>
                         </Link>
-                        <Link href="/signup" passHref>
+                        <Link href="/auth/signup" passHref>
                             <Typography
-                                className={router.pathname === '/signup' ? 'active-link' : ''}
+                                className={
+                                    router.pathname === '/auth/signup'
+                                        ? 'active-link'
+                                        : ''
+                                }
                                 sx={{ my: 2, mx: 2 }}
                             >
                                 Sign Up
                             </Typography>
                         </Link>
-                        <Link href="/login" passHref>
+                        <Link href="/auth/login" passHref>
                             <Typography
-                                className={router.pathname === '/login' ? 'active-link' : ''}
+                                className={
+                                    router.pathname === '/auth/login'
+                                        ? 'active-link'
+                                        : ''
+                                }
                                 sx={{ my: 2, mx: 2 }}
                             >
-                               Login
-                            </Typography>
-                        </Link>
-                        <Link href="/verificationpage" passHref>
-                            <Typography
-                                className={router.pathname === '/verificationpage' ? 'active-link' : ''}
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                               verificationpage
-                            </Typography>
-                        </Link>
-                        <Link href="/passwordpage" passHref>
-                            <Typography
-                                className={router.pathname === '/passwordpage' ? 'active-link' : ''}
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                               passwordpage
-                            </Typography>
-                        </Link>
-                        <Link href="/forgotpassword" passHref>
-                            <Typography
-                                className={router.pathname === '/forgotpassword' ? 'active-link' : ''}
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                               forgotpassword
+                                Login
                             </Typography>
                         </Link>
                     </Box>

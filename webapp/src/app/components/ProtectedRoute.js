@@ -23,7 +23,7 @@ export const VerificationRoute = ({ children }) => {
 
 export const PasswordRoute = ({ children }) => {
     const location = useLocation();
-    const verificationToken = location.pathname.split('/verify/')[1];
+    const verificationToken = location.pathname.split('/verificationpage/')[1];
 
     if (!verificationToken) {
         return <Navigate to="/signup" replace />;
