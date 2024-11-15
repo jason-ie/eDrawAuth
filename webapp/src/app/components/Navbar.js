@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import Link from 'next/link';
-import './navbar.css';
 import { useRouter } from 'next/router';
+import './navbar.css';
 import {
     AppBar,
     Box,
@@ -9,6 +9,18 @@ import {
     Typography,
     Container,
 } from '../components/muiComponents';
+import Button from './Button';
+
+const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/features' },
+    { label: 'About Us', path: '/about' },
+    { label: 'Sign Up', path: '/signup' },
+    { label: 'Login', path: '/login' },
+    { label: 'Verification Page', path: '/verificationpage' },
+    { label: 'Password Page', path: '/passwordpage' },
+    { label: 'Forgot Password', path: '/forgotpassword' },
+];
 
 function ResponsiveAppBar() {
     const router = useRouter();
@@ -26,7 +38,6 @@ function ResponsiveAppBar() {
                             />
                         </Link>
                     </Box>
-
                     <Box
                         sx={{
                             display: 'flex',
@@ -34,63 +45,22 @@ function ResponsiveAppBar() {
                             flexGrow: 1,
                         }}
                     >
-                        <Link href="/" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/' ? 'active-link' : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Home
-                            </Typography>
-                        </Link>
-                        <Link href="/features" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/features'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Features
-                            </Typography>
-                        </Link>
-                        <Link href="/about" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/about'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                About Us
-                            </Typography>
-                        </Link>
-                        <Link href="/auth/signup" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/auth/signup'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Sign Up
-                            </Typography>
-                        </Link>
-                        <Link href="/auth/login" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/auth/login'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Login
-                            </Typography>
+                        {navLinks.map((link) => (
+                            <Link key={link.path} href={link.path} passHref>
+                                <Typography
+                                    className={
+                                        router.pathname === link.path
+                                            ? 'active-link'
+                                            : ''
+                                    }
+                                    sx={{ my: 2, mx: 2 }}
+                                >
+                                    {link.label}
+                                </Typography>
+                            </Link>
+                        ))}
+                        <Link className="signupbtn" href="/signup">
+                            <Button className="signupbtnclr">Sign Up</Button>
                         </Link>
                     </Box>
                 </Toolbar>
