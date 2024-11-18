@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Grid, Typography, TextField, Button, Box } from '../components/muiComponents';
+import './footer.css';
 
 export default function Footer() {
     return (
         <Box component="footer">
-            <Container className='container' >
+            <Container className='container-footer' >
                 <Grid container>
                     <Grid container spacing={4} size={6}>
                         <Grid  >
@@ -31,18 +32,12 @@ export default function Footer() {
                                 <span role="img" aria-label="phone"></span> (866) 536-5223
                             </Typography>
                         </Grid>
-                        <Grid >
-                       
-                            <Typography variant="body2" color="textSecondary">
-                            <img src="/enlabellogo.png" alt="Vector 2" />    © 2024 enLabel Global Services, Inc. All rights reserved.
-                            </Typography>
-                        </Grid>
+
                     </Grid>
 
-                    {/* Bottom Section */}
                     <Grid container size={6} spacing={2} justifyContent="space-between" alignItems="center" sx={{ marginBottom: '2rem' }}>
-                        
-                    {/* <Grid size={12}>
+
+                        {/* <Grid size={12}>
                             <Button variant="outlined" color="inherit" startIcon={<span role="img" aria-label="globe">🌐</span>}>
                                 English
                             </Button>
@@ -65,10 +60,23 @@ export default function Footer() {
                         <Grid >
                             <img src="/vector14.png" alt="Vector 2" />
                         </Grid>
-                       
+
                     </Grid>
+                    {/* <Grid size={12} >
+                            <hr></hr>
+                            <Typography variant="body2" color="textSecondary">
+                                <Box sx={{ display: "flex", alignItems: "center" }}>
+                                    <img
+                                        src="/enlabellogo.png"
+                                        alt="Vector 2"
+                                    />
+                                    <span>© 2024 enLabel Global Services, Inc. All rights reserved.</span>
+                                </Box>
+                            </Typography>
+                    </Grid> */}
                 </Grid>
             </Container>
+
         </Box>
     );
 }
