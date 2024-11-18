@@ -23,6 +23,7 @@ body {
   font-family: 'San Francisco', Helvetica, Arial, san-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #3A3A3A;
 }
 
 * {
@@ -42,9 +43,6 @@ a {
   }
 }
 
-.container{
-  padding: 24px;
-}
 
 .font-18{
   font-size: 18px;

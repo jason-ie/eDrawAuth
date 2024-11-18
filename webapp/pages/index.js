@@ -18,10 +18,13 @@ import {
 } from '../src/app/components/muiComponents';
 
 export default function Home() {
-    const edrawData = useEdrawData();
 
-    if (!edrawData) return <div>Loading...</div>;
-    const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = edrawData;
+
+    const homePageData = useEdrawData("/api/home-page");
+
+
+    if (!homePageData) return <div>Loading...</div>;
+    const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = homePageData;
     const titleParts = edrawTitle.split("e-Draw");
 
     return (
