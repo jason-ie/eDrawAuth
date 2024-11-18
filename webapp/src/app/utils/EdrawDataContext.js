@@ -4,25 +4,33 @@ import { getedrawData } from './api';
 const EdrawDataContext = createContext();
 
 export function EdrawDataProvider({ children }) {
-  const [edrawData, setEdrawData] = useState(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      if (!edrawData) {
-        const data = await getedrawData("/api/home-page");
-        setEdrawData(data.data);
-      }
+  const [edrawData, setEdrawData] = useState({});
+  
+  const fetchData = async (endpoint) => {
+    if (!edrawData[endpoint]) {
+      const response = await getedrawData(endpoint);
+      setEdrawData((prevData) => ({
+        ...prevData,
+        [endpoint]: response.data,
+      }));
     }
-    fetchData();
-  }, [edrawData]);
+  };
 
   return (
-    <EdrawDataContext.Provider value={edrawData}>
+    <EdrawDataContext.Provider value={{ edrawData, fetchData }}>
       {children}
     </EdrawDataContext.Provider>
   );
 }
 
-export function useEdrawData() {
-  return useContext(EdrawDataContext);
+export function useEdrawData(endpoint) {
+  const { edrawData, fetchData } = useContext(EdrawDataContext);
+
+  useEffect(() => {
+    if (endpoint) {
+      fetchData(endpoint); 
+    }
+  }, [endpoint]);
+
+  return edrawData[endpoint] || null; 
 }
