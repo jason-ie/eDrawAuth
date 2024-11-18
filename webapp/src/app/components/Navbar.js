@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import './navbar.css';
@@ -20,13 +20,34 @@ const navLinks = [
     { label: 'Verification Page', path: '/verificationpage' },
     { label: 'Password Page', path: '/passwordpage' },
     { label: 'Forgot Password', path: '/forgotpassword' },
+    { label: 'Support', path: '/support' },
 ];
 
 function ResponsiveAppBar() {
     const router = useRouter();
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        <AppBar className="navbar-bg" position="fixed" elevation={0}>
+        <AppBar
+            className={`navbar-bg ${scrolled ? 'navbar-scrolled' : ''}`}
+            position="fixed"
+            elevation={0}
+        >
             <Container className="navbar">
                 <Toolbar disableGutters>
                     <Box sx={{ flexGrow: 1 }}>
@@ -46,7 +67,7 @@ function ResponsiveAppBar() {
                             </Link>
                         ))}
                         <Link className="signupbtn" href="/signup">
-                        <Button className="signupbtnclr">Sign Up</Button>
+                            <Button className="signupbtnclr">Sign Up</Button>
                         </Link>
                     </Box>
                 </Toolbar>
