@@ -51,7 +51,7 @@ export default function Support() {
         <>
             <Container className='container'>
                 <Grid container className="grey-card">
-                    <Grid container  size={6} rowSpacing={6} columnSpacing={2} >
+                    <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }} rowSpacing={6} columnSpacing={2} >
                         <Grid >
                         <h2 className='heading'>Contact our team</h2>
                         <p>
@@ -69,7 +69,7 @@ export default function Support() {
                         <div>Reach out and we’ll get in touch within 24 hours</div>
                         </Grid>
                     </Grid>
-                    <Grid size={6}>
+                    <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
                         <Box className="support-form">
                             <form onSubmit={handleSubmit}>
                                 <Grid container rowSpacing={1} columnSpacing={2} className="support-form">
