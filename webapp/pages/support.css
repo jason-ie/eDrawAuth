@@ -39,6 +39,21 @@
     height: 4px;
     background-color: #D32F2F;
     border: none;
-    width: 20rem;
+    width: 24rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.support-form{
+    text-align: left ;
+}
+
+.support-form div{
+    margin-bottom: 8px;
+}
+.support-img1{
+    margin: auto;
+}
+
+.heading{
+    margin-bottom: 1rem;
 }
