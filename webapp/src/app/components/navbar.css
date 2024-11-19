@@ -44,5 +44,11 @@
 }
 
 .navbar-bg.navbar-scrolled {
-  background-color: #F3F3F3; 
+  background-color: #6f7e86; 
+  color: white;
+}
+
+
+.navbar-bg.navbar-scrolled a {
+  color: white;
 }
