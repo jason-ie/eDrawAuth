@@ -35,6 +35,13 @@ export const authApi = createApi({
                 body: data,
             }),
         }),
+        requestResendEmail: builder.mutation({
+            query: (userData) => ({
+                url: '/auth/resend-email',
+                method: 'POST',
+                body: userData,
+            }),
+        }),
     }),
 });
 
@@ -43,4 +50,5 @@ export const {
     useVerifyMutation,
     useLoginMutation,
     useRequestPasswordResetMutation,
+    useRequestResendEmailMutation,
 } = authApi;

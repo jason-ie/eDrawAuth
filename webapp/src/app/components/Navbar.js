@@ -15,12 +15,8 @@ const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'Features', path: '/features' },
     { label: 'About Us', path: '/about' },
-    { label: 'Sign Up', path: '/signup' },
-    { label: 'Login', path: '/login' },
-    { label: 'Verification Page', path: '/verificationpage' },
-    { label: 'Password Page', path: '/passwordpage' },
-    { label: 'Forgot Password', path: '/forgotpassword' },
-    { label: 'Support', path: '/support' },
+    { label: 'Sign Up', path: '/auth/signup' },
+    { label: 'Login', path: '/auth/login' },
 ];
 
 function ResponsiveAppBar() {
@@ -52,21 +48,35 @@ function ResponsiveAppBar() {
                 <Toolbar disableGutters>
                     <Box sx={{ flexGrow: 1 }}>
                         <Link href="/" passHref>
-                            <img className="logo" src="/e-draw_logo.png" alt="e-Draw Logo" />
+                            <img
+                                className="logo"
+                                src="/e-draw_logo.png"
+                                alt="e-Draw Logo"
+                            />
                         </Link>
                     </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', flexGrow: 1 }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            flexGrow: 1,
+                        }}
+                    >
                         {navLinks.map((link) => (
                             <Link key={link.path} href={link.path} passHref>
                                 <Typography
-                                    className={router.pathname === link.path ? 'active-link' : ''}
+                                    className={
+                                        router.pathname === link.path
+                                            ? 'active-link'
+                                            : ''
+                                    }
                                     sx={{ my: 2, mx: 2 }}
                                 >
                                     {link.label}
                                 </Typography>
                             </Link>
                         ))}
-                        <Link className="signupbtn" href="/signup">
+                        <Link className="signupbtn" href="/auth/signup">
                             <Button className="signupbtnclr">Sign Up</Button>
                         </Link>
                     </Box>

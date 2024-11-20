@@ -13,7 +13,7 @@ function EmailBox({
         <div className="relative mb-4">
             {/* Icon */}
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                {/* <MailIcon className="h-5 w-5 text-red-700" /> */}
+                <MailIcon className="h-5 w-5 text-red-700" />
             </div>
 
             {/* Input Field */}
@@ -37,7 +37,7 @@ function EmailBox({
                             aria-label="Email information"
                         >
                             <div className="h-5 w-5 text-red-700">
-                                {/* <InformationCircleIcon className="h-5 w-5 text-red-700" /> */}
+                                <InformationCircleIcon className="h-5 w-5 text-red-700" />
                             </div>
                         </button>
                     </Tooltip>

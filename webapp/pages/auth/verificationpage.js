@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; // Import useRouter instead of useNavigate
-import loginBg from '../public/login-bg.png';
+import loginBg from '../../public/login-bg.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { FiRefreshCw } from 'react-icons/fi';
-import { setError } from '../src/app/redux/authSlice';
-import { useRegisterMutation } from '../src/app/redux/api/authApi';
+import { setError } from '../../src/app/redux/authSlice';
+import { useRequestResendEmailMutation } from '../../src/app/redux/api/authApi';
 
 const VerificationPage = () => {
     const router = useRouter(); // Use useRouter instead of useNavigate
     const dispatch = useDispatch();
     const [countdown, setCountdown] = useState(30);
     const [canResend, setCanResend] = useState(false);
-    const [register] = useRegisterMutation();
+    const [requestResendEmail, { isLoading }] = useRequestResendEmailMutation();
 
     const email = useSelector((state) => state.auth.email);
     const firstName = useSelector((state) => state.auth.firstName);
-    const lastName = useSelector((state) => state.auth.lastName);
+    const verificationCode = useSelector(
+        (state) => state.auth.verificationCode
+    );
     const error = useSelector((state) => state.auth.error);
 
     useEffect(() => {
@@ -36,22 +38,38 @@ const VerificationPage = () => {
     }, [email]);
 
     const handleResendEmail = async () => {
+        console.log('handle resend clicked');
         if (!canResend) return;
-        setError(null);
 
         try {
             dispatch(setError(null));
-            await register({
+            console.log('Attempting to resend email to:', email);
+
+            const result = await requestResendEmail({
                 email,
                 firstName,
-                lastName,
+                storedVerificationCode: verificationCode,
             }).unwrap();
 
-            // Reset countdown on successful resend
-            setCountdown(30);
-            setCanResend(false);
+            console.log('Resend result:', result);
+
+            if (result.success) {
+                setCountdown(30);
+                setCanResend(false);
+            } else {
+                if (result.statusCode === 'INVALID_VERIFICATION') {
+                    dispatch(
+                        setError(
+                            'Please sign up again to get a new verification link.'
+                        )
+                    );
+                    setTimeout(() => router.push('/auth/signup'), 3000);
+                    return;
+                }
+                dispatch(setError(result.message || 'Failed to resend email'));
+            }
         } catch (err) {
-            console.error('Failed to resend:', err);
+            console.error('Resend failed:', err);
             dispatch(
                 setError(
                     'Failed to resend verification email. Please try again.'
@@ -61,12 +79,12 @@ const VerificationPage = () => {
     };
 
     return (
-        <div className="bg-white flex flex-col items-center justify-center min-h-screen">
+        <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
             {/* Background Image */}
             <div
                 className="absolute inset-y-0 right-0 w-1/2"
                 style={{
-                    backgroundImage: `url(${loginBg})`,
+                    backgroundImage: 'url(/login-bg.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'right',
                 }}
@@ -76,18 +94,15 @@ const VerificationPage = () => {
             <div className="absolute inset-0 bg-white opacity-5" />
 
             {/* Content Container */}
-            <div className="relative bg-white p-6 rounded-2xl shadow-lg border border-gray-150 w-4/5 max-w-2xl mx-auto text-center">
+            <div className="relative bg-white w-full max-w-2xl mx-auto text-center sm:p-4 rounded-2xl shadow-lg border border-gray-150 m-4">
                 {/* Logo */}
                 <img
                     src="/e-draw_logo.png"
                     alt="Edraw Logo"
-                    className="w-20 h-20 mx-auto mb-8 object-cover mb-10"
+                    className="w-[120px] h-[120px] mx-auto mb-4 object-cover"
                 />
 
                 {/* Verification Message */}
-                <h1 className="text-2xl font-bold text-gray-900 mb-4">
-                    Check Your Email
-                </h1>
                 <p className="text-gray-600 mb-6">
                     We've sent a verification link to:
                     <br />
@@ -116,7 +131,10 @@ const VerificationPage = () => {
 
                 {/* Resend Button */}
                 <button
-                    onClick={handleResendEmail}
+                    onClick={() => {
+                        console.log('Button clicked');
+                        handleResendEmail();
+                    }}
                     disabled={!canResend}
                     className={`flex items-center justify-center w-full py-3 px-4 rounded-lg
                         ${
@@ -127,7 +145,9 @@ const VerificationPage = () => {
                         transition-all duration-200 ease-in-out`}
                 >
                     <FiRefreshCw
-                        className={`mr-2 ${!canResend && countdown > 0 ? 'animate-spin' : ''}`}
+                        className={`mr-2 ${
+                            !canResend && countdown > 0 ? 'animate-spin' : ''
+                        }`}
                     />
                     {canResend
                         ? 'Resend Verification Email'

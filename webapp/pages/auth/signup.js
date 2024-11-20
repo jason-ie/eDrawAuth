@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
-import NameInput from '../src/app/components/NameInput';
-import EmailBox from '../src/app/components/EmailBox';
-import LicenseAgreement from '../src/app/components/LicenseAgreement';
-import loginBg from '../public/login-bg.png';
-import { useRegisterMutation } from '../src/app/redux/api/authApi';
-import { setCredentials, clearCredentials, setError } from '../src/app/redux/authSlice';
+import NameInput from '../../src/app/components/NameInput';
+import EmailBox from '../../src/app/components/EmailBox';
+import LicenseAgreement from '../../src/app/components/LicenseAgreement';
+import loginBg from '../../public/login-bg.png';
+import { useRegisterMutation } from '../../src/app/redux/api/authApi';
+import {
+    setCredentials,
+    setVerificationCode,
+    setError,
+} from '../../src/app/redux/authSlice';
 import { useRouter } from 'next/router';
 
 export const SignupPage = () => {
@@ -14,6 +18,7 @@ export const SignupPage = () => {
     // const navigate = useNavigate();
     const dispatch = useDispatch();
     const [register, { isLoading }] = useRegisterMutation();
+    const router = useRouter();
 
     // State for form inputs
     const [email, setEmail] = useState('');
@@ -24,6 +29,7 @@ export const SignupPage = () => {
 
     useEffect(() => {
         document.title = 'eDraw - Create Your Account';
+        setError(null);
     }, []);
 
     const isFormValid = () => {
@@ -66,7 +72,8 @@ export const SignupPage = () => {
 
             if (result.success && result.statusCode === 0) {
                 dispatch(setCredentials({ email, firstName, lastName }));
-                router.push('/verify');
+                dispatch(setVerificationCode(result.verificationCode));
+                router.push('/auth/verificationpage');
             } else if (result.statusCode === 183) {
                 dispatch(
                     setError(
@@ -93,12 +100,12 @@ export const SignupPage = () => {
     };
 
     return (
-        <div className="bg-white flex flex-col items-center justify-center min-h-screen">
+        <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
             {/* Background Image */}
             <div
                 className="absolute inset-y-0 right-0 w-1/2"
                 style={{
-                    backgroundImage: `url(${loginBg})`,
+                    backgroundImage: 'url(/login-bg.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'right',
                 }}
@@ -108,12 +115,12 @@ export const SignupPage = () => {
             <div className="absolute inset-0 bg-white opacity-5" />
 
             {/* Signup Form Container */}
-            <div className="relative bg-white py-8 px-12 rounded-2xl shadow-lg  border border-gray-150 w-3/4 max-w-2xl mx-auto">
+            <div className="relative bg-white w-full max-w-2xl mx-auto sm:p-8 rounded-2xl shadow-lg border border-gray-150 m-4">
                 {/* Logo */}
                 <img
                     src="/e-draw_logo.png"
                     alt="Edraw Logo"
-                    className="w-40 h-40 mx-auto mb-4 object-cover"
+                    className="w-[120px] h-[120px] mx-auto mb-4 object-cover"
                 />
 
                 {/* Signup Form */}
@@ -147,9 +154,9 @@ export const SignupPage = () => {
                     />
 
                     {error && (
-                        <p className="text-red-700 text-sm mt-1 mb-1">
-                            {error}{' '}
-                        </p>
+                        <div className="text-red-600 text-sm p-2 bg-red-50 border border-red-100 rounded-lg">
+                            {error}
+                        </div>
                     )}
 
                     {/* Submit Button */}
@@ -177,7 +184,7 @@ export const SignupPage = () => {
                 <p className="mt-4 text-center text-gray-600">
                     Already have an account?{' '}
                     <Link
-                        href="/login"
+                        href="/auth/login"
                         className="text-red-700 font-semibold hover:underline"
                     >
                         Login
