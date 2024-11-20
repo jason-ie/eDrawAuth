@@ -1,0 +1,60 @@
+.grey-card {
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1400px;
+    place-items: center;
+    place-content: center;
+    padding: 2.5rem 0rem;
+}
+
+.support-form{
+    background-color: white;
+    border-radius: 30px;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.submitbtn{
+    color: white;
+    background-color: #D32F2F;
+    width: 20%;
+}
+
+.support-img{
+    top: 45%;
+    left: 86%;
+    position: absolute;
+    z-index: -1;
+}
+
+.hr{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 24rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.support-form{
+    text-align: left ;
+}
+
+.support-form div{
+    margin-bottom: 8px;
+}
+.support-img1{
+    margin: auto;
+    text-align: center;
+}
+
+.heading{
+    margin-bottom: 1rem;
+}

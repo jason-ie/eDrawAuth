@@ -38,3 +38,17 @@
   background-color: #D32F2F;
   color: white;
 }
+
+.navbar-bg {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-bg.navbar-scrolled {
+  background-color: #6f7e86; 
+  color: white;
+}
+
+
+.navbar-bg.navbar-scrolled a {
+  color: white;
+}

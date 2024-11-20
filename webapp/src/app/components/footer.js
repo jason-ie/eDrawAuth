@@ -1,17 +1,18 @@
 import React from 'react';
 import { Container, Grid, Typography, TextField, Button, Box } from '../components/muiComponents';
+import './footer.css';
 
 export default function Footer() {
     return (
         <Box component="footer">
-            <Container className='container' >
-                <Grid container>
-                    <Grid container spacing={4} size={6}>
+            <Container className='container-footer' >
+                <Grid container size={12}>
+                     <Grid container spacing={4} size={6}>
                         <Grid  >
                             <Typography variant="h6" gutterBottom>
                                 Terms and policy
                             </Typography>
-                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
+                            <ul className="font-14" style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
                                 <li><a href="#">Legal Notices</a></li>
                                 <li><a href="#">License Information</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
@@ -19,34 +20,21 @@ export default function Footer() {
                             </ul>
                         </Grid>
 
-                        <Grid >
+                        <Grid  >
                             <Typography variant="h6" gutterBottom>
                                 Contact Us
                             </Typography>
-                            <Typography variant="body1">
-                                <span role="img" aria-label="location">📍</span> 300 Commercial St.<br />
-                                Boston, MA. 02109
-                            </Typography>
-                            <Typography variant="body1">
-                                <span role="img" aria-label="phone"></span> (866) 536-5223
-                            </Typography>
-                        </Grid>
-                        <Grid >
-                       
-                            <Typography variant="body2" color="textSecondary">
-                            <img src="/enlabellogo.png" alt="Vector 2" />    © 2024 enLabel Global Services, Inc. All rights reserved.
-                            </Typography>
-                        </Grid>
-                    </Grid>
+                                <div className="font-14">
+                                     300 Commercial St. <br />
+                                     Boston, MA. 02109 <br /> <br /> 
+                                     (866) 536-5223</div>
 
-                    {/* Bottom Section */}
-                    <Grid container size={6} spacing={2} justifyContent="space-between" alignItems="center" sx={{ marginBottom: '2rem' }}>
-                        
-                    {/* <Grid size={12}>
-                            <Button variant="outlined" color="inherit" startIcon={<span role="img" aria-label="globe">🌐</span>}>
-                                English
-                            </Button>
-                        </Grid> */}
+                        </Grid>
+
+                    </Grid> 
+
+                    <Grid container size={6} spacing={2} justifyContent="space-between" alignItems="center" >
+
                         <Grid >
                             <Typography variant="h6" gutterBottom>
                                 Subscribe To Newsletter
@@ -65,10 +53,21 @@ export default function Footer() {
                         <Grid >
                             <img src="/vector14.png" alt="Vector 2" />
                         </Grid>
-                       
+
+                    </Grid>
+                    <Grid size={12}  >
+                        <hr></hr>
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                            <img
+                                src="/enlabellogo.png"
+                                alt="Vector 2"
+                            />
+                            <div >© 2024 enLabel Global Services, Inc. All rights reserved.</div>
+                        </Box>
                     </Grid>
                 </Grid>
             </Container>
+
         </Box>
     );
 }
