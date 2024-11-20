@@ -17,7 +17,10 @@ const navLinks = [
     { label: 'About Us', path: '/about' },
     { label: 'Sign Up', path: '/auth/signup' },
     { label: 'Login', path: '/auth/login' },
+<<<<<<< HEAD
     { label: 'Support', path: '/auth/support' },
+=======
+>>>>>>> b3ddd91180e9d093e42c8287358e51983a4c1003
 ];
 
 function ResponsiveAppBar() {
