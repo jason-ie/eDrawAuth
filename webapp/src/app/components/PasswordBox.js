@@ -40,7 +40,7 @@ function PasswordBox({
             <div className="relative">
                 {/* Lock Icon */}
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    {/* <LockClosedIcon className="h-5 w-5 text-red-700" /> */}
+                    <LockClosedIcon className="h-5 w-5 text-red-700" />
                 </div>
 
                 {/* Input Field */}
@@ -84,30 +84,44 @@ function PasswordBox({
                 <div className="mt-2 space-y-1 text-sm">
                     <div className="flex items-center space-x-2">
                         <div
-                            className={`w-1 h-1 rounded-full ${hasLength ? 'bg-green-500' : 'bg-gray-300'}`}
+                            className={`w-1 h-1 rounded-full ${
+                                hasLength ? 'bg-green-500' : 'bg-gray-300'
+                            }`}
                         />
                         <span
-                            className={`text-xs ${hasLength ? 'text-green-500' : 'text-gray-500'}`}
+                            className={`text-xs ${
+                                hasLength ? 'text-green-500' : 'text-gray-500'
+                            }`}
                         >
                             At least 8 characters
                         </span>
                     </div>
                     <div className="flex items-center space-x-2">
                         <div
-                            className={`w-1 h-1 rounded-full ${hasUppercase ? 'bg-green-500' : 'bg-gray-300'}`}
+                            className={`w-1 h-1 rounded-full ${
+                                hasUppercase ? 'bg-green-500' : 'bg-gray-300'
+                            }`}
                         />
                         <span
-                            className={`text-xs ${hasUppercase ? 'text-green-500' : 'text-gray-500'}`}
+                            className={`text-xs ${
+                                hasUppercase
+                                    ? 'text-green-500'
+                                    : 'text-gray-500'
+                            }`}
                         >
                             At least 1 uppercase letter
                         </span>
                     </div>
                     <div className="flex items-center space-x-2">
                         <div
-                            className={`w-1 h-1 rounded-full ${hasNumber ? 'bg-green-500' : 'bg-gray-300'}`}
+                            className={`w-1 h-1 rounded-full ${
+                                hasNumber ? 'bg-green-500' : 'bg-gray-300'
+                            }`}
                         />
                         <span
-                            className={`text-xs ${hasNumber ? 'text-green-500' : 'text-gray-500'}`}
+                            className={`text-xs ${
+                                hasNumber ? 'text-green-500' : 'text-gray-500'
+                            }`}
                         >
                             At least 1 number
                         </span>

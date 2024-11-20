@@ -2,51 +2,47 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; // Use Next.js router
 import { useDispatch, useSelector } from 'react-redux';
 import { CheckCircleIcon } from '@heroicons/react/solid';
-import PasswordBox from '../src/app/components/PasswordBox';
-import loginBg from '../public/login-bg.png';
+import PasswordBox from '../../src/app/components/PasswordBox';
+import loginBg from '../../public/login-bg.png';
 import {
     clearCredentials,
     setError,
     setVerificationSuccess,
-} from '../src/app/redux/authSlice';
-import { useVerifyMutation } from '../src/app/redux/api/authApi';
+} from '../../src/app/redux/authSlice';
+import { useVerifyMutation } from '../../src/app/redux/api/authApi';
 
 const PasswordPage = () => {
-    const router = useRouter(); // Use useRouter for navigation and query params
+    const router = useRouter();
     const dispatch = useDispatch();
 
-    // Redux state
+    const { token } = router.query;
+
+    // Rest of your code stays the same
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [verify, { isLoading }] = useVerifyMutation();
+
     const error = useSelector((state) => state.auth.error);
     const verificationSuccess = useSelector(
         (state) => state.auth.verificationSuccess
     );
     const email = useSelector((state) => state.auth.email);
 
-    // RTK Query mutation
-    const [verify, { isLoading }] = useVerifyMutation();
-
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-
-    // Get the verification token from the query parameters
-    const { verificationToken } = router.query;
-
     useEffect(() => {
-        if (!verificationToken) {
-            router.push('/signup'); // Redirect to signup if no token
+        if (router.isReady && !token) {
+            router.push('/auth/signup');
+            return;
         }
-        document.title = 'Set Password | eDraw';
 
-        dispatch(setError(null));
-
-        // Set verification success since email is verified at this point
-        dispatch(setVerificationSuccess(true));
-    }, [verificationToken, router, dispatch]);
+        if (router.isReady && token) {
+            document.title = 'Set Password | eDraw';
+            dispatch(setError(null));
+            dispatch(setVerificationSuccess(true));
+        }
+    }, [token, router.isReady, dispatch]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(setError(null));
-
         if (password !== confirmPassword) {
             dispatch(setError('Passwords do not match'));
             return;
@@ -54,15 +50,15 @@ const PasswordPage = () => {
 
         try {
             const result = await verify({
-                verificationCode: verificationToken,
+                verificationCode: token,
                 password: password,
             }).unwrap();
-            console.log('result', result);
 
             if (result.success) {
                 dispatch(clearCredentials());
-                router.push('/login', {
-                    state: {
+                router.push({
+                    pathname: '/auth/login',
+                    query: {
                         message: 'Account verified successfully. Please login.',
                         type: 'success',
                     },
@@ -72,8 +68,9 @@ const PasswordPage = () => {
             console.error('Verification error:', err);
             if (err.data?.statusCode === 905) {
                 dispatch(clearCredentials());
-                router.push('/login', {
-                    state: {
+                router.push({
+                    pathname: '/auth/login',
+                    query: {
                         message: 'Account was already created. Please Login.',
                         type: 'error',
                     },
@@ -89,13 +86,17 @@ const PasswordPage = () => {
         }
     };
 
+    if (!router.isReady) {
+        return null;
+    }
+
     return (
-        <div className="bg-white flex flex-col items-center justify-center min-h-screen">
+        <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
             {/* Background Image */}
             <div
                 className="absolute inset-y-0 right-0 w-1/2"
                 style={{
-                    backgroundImage: `url(${loginBg})`,
+                    backgroundImage: 'url(/login-bg.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'right',
                 }}
@@ -103,14 +104,14 @@ const PasswordPage = () => {
             <div className="absolute inset-0 bg-white opacity-5" />
 
             {/* Content Container */}
-            <div className="relative bg-white px-12 py-4 rounded-2xl shadow-lg border border-gray-200 w-3/5 max-w-2xl max-h-lvh mx-auto">
+            <div className="relative bg-white w-full max-w-2xl mx-auto sm:p-4 rounded-2xl shadow-lg border border-gray-150 m-4">
                 <img
                     src="/e-draw_logo.png"
                     alt="Edraw Logo"
-                    className="w-20 h-20 mx-auto mb-3 mt-3 object-cover"
+                    className="w-[120px] h-[120px] mx-auto mb-4 object-cover"
                 />
 
-                <div className="text-center mb-8">
+                <div className="text-center mb-4">
                     <h1 className="text-2xl font-bold text-gray-900">
                         Welcome to eDraw
                     </h1>

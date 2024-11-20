@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link'; // Import Link from 'next/link'
 import { CheckCircleIcon } from '@heroicons/react/solid';
-import EmailBox from '../src/app/components/EmailBox';
-import NameInput from '../src/app/components/NameInput';
-import loginBg from '../public/login-bg.png';
-import { useRequestPasswordResetMutation } from '../src/app/redux/api/authApi';
-import { setError } from '../src/app/redux/authSlice';
+import EmailBox from '../../src/app/components/EmailBox';
+import NameInput from '../../src/app/components/NameInput';
+import loginBg from '../../public/login-bg.png';
+import { useRequestPasswordResetMutation } from '../../src/app/redux/api/authApi';
+import { setError } from '../../src/app/redux/authSlice';
 
 const ForgotPasswordPage = () => {
     const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const ForgotPasswordPage = () => {
 
                 <div className="relative bg-white p-12 rounded-2xl shadow-lg border border-gray-150 w-4/5 max-w-2xl mx-auto text-center">
                     <img
-                       src="/e-draw_logo.png"
+                        src="/e-draw_logo.png"
                         alt="Edraw Logo"
                         className="w-20 h-20 mx-auto mb-8 object-cover"
                     />
@@ -74,7 +74,7 @@ const ForgotPasswordPage = () => {
                         </span>
                     </p>
 
-                    <Link href="/login">
+                    <Link href="/auth/login">
                         <a className="inline-block text-red-700 hover:text-red-800 font-semibold">
                             Back to Login
                         </a>
@@ -85,11 +85,11 @@ const ForgotPasswordPage = () => {
     }
 
     return (
-        <div className="bg-white flex flex-col items-center justify-center min-h-screen">
+        <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
             <div
                 className="absolute inset-y-0 right-0 w-1/2"
                 style={{
-                    backgroundImage: `url(${loginBg})`,
+                    backgroundImage: 'url(/login-bg.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'right',
                 }}
@@ -150,7 +150,7 @@ const ForgotPasswordPage = () => {
                 </form>
 
                 <div className="mt-6 text-center">
-                    <Link href="/login">
+                    <Link href="/auth/login">
                         <div className="text-red-700 hover:text-red-800 font-semibold">
                             Back to Login
                         </div>

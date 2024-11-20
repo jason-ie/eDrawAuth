@@ -9,6 +9,8 @@ const initialState = {
     accessToken: null,
     userType: null,
     email: null,
+    firstName: null,
+    lastName: null,
 };
 
 const authSlice = createSlice({
@@ -38,6 +40,9 @@ const authSlice = createSlice({
             state.userType = action.payload.userType;
             state.email = action.payload.email;
         },
+        setVerificationCode: (state, action) => {
+            state.verificationCode = action.payload;
+        },
     },
 });
 
@@ -47,6 +52,7 @@ export const {
     setError,
     setVerificationSuccess,
     setLoginCredentials,
+    setVerificationCode,
 } = authSlice.actions;
 
 export default authSlice.reducer;
