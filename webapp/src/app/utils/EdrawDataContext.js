@@ -34,3 +34,14 @@ export function useEdrawData(endpoint) {
 
   return edrawData[endpoint] || null; 
 }
+
+export function splitAndHighlightMultiple(text, highlightParts) {
+  const regex = new RegExp(`(${highlightParts.join('|')})`, 'gi'); 
+  const parts = text.split(regex);
+
+  return parts.map((part, index) => (
+      <span key={index} className={highlightParts.includes(part) ? 'highlighted' : ''}>
+          {part}
+      </span>
+  ));
+}
