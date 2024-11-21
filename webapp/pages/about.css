@@ -6,6 +6,27 @@
     padding: 2rem;
 }
 
+
+.container {
+    max-width: 1400px;
+    place-items: center;
+    place-content: center;
+    padding: 2.5rem 0rem;
+}
 .text-center{
     text-align: center;
+}
+
+.hr{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    place-self: center;
+}
+
+.red-text{
+    color: #D32F2F;
 }

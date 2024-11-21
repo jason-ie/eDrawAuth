@@ -18,9 +18,10 @@ export default function AboutUs() {
   return (
     <>
       <Container className='container'>
-        <Grid container>
+        <Grid container rowSpacing={6} columnSpacing={2}>
           <Grid size={12} className="text-center">
             <h1>About Us</h1>
+            <hr className='hr'></hr>
             <p>
               Headquartered in the historical North End of Boston, MA, enLabel Global Services is a Technology and Consulting Services Company, which provides first-class Integrated Packaging Management (IPM) Solutions to highly-regulated global industries.
               Working diligently with manufacturers and distributors in the Medical Device, Biotech, Pharmaceutical, Aerospace, and Petro/Chemical industries, our main objective is to deliver the highest ROI to our clients by providing a software platform, which supports a uniform architecture, to deliver unsurpassed global packaging solutions.
@@ -28,16 +29,19 @@ export default function AboutUs() {
           </Grid>
           <Grid className="text-center" size={12} >
             <h2>Overview</h2>
+            <hr className='hr'></hr>
           </Grid>
-          <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
-            <div>
-              <h3>Our Guarantee</h3>
+          <Grid container size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }} rowSpacing={2}>
+              <Grid>
+              <h3 className='red-text'>Our Guarantee</h3>
               <p>
                 Attain global accessibility to generate your packaging from one uniform platform.
                 Achieve 100% electronic version control of your packaging.
                 Make global changes to any data on your packaging, regardless of how many products you have, in less than one hour.
               </p>
-              <h3>
+              </Grid>
+              <Grid>
+              <h3 className='red-text'>
                 Our systematic approach provides streamlined methodologies to:
               </h3>
               <p>
@@ -46,7 +50,7 @@ export default function AboutUs() {
                 Mitigate packaging-associated risks.
                 And minimize the overall time-to-market cycle.
               </p>
-            </div>
+              </Grid>
           </Grid>
           <Grid className="text-center" size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
             <img src='/vector18.png' />
@@ -54,11 +58,11 @@ export default function AboutUs() {
           <Grid container className="grey-card">
             <Grid className="text-center" size={12} >
               <h3>Why Choose Us?</h3>
-              <hr></hr>
+              <hr className='hr'></hr>
             </Grid>
             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
               <div>
-                <h3>
+                <h3 className='red-text'>
                   INNOVATION
                 </h3>
                 <p>
@@ -68,9 +72,9 @@ export default function AboutUs() {
                 </p>
               </div>
             </Grid>
-            <Grid  size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
+            <Grid  size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }} >
               <div>
-                <h3>
+                <h3 className='red-text'>
                   IMPROVEMENT
                 </h3>
                 <p>
@@ -81,7 +85,7 @@ export default function AboutUs() {
               </div>
             </Grid>
             <Grid className="text-center" size={12}>
-              <h3>INTEGRITY</h3>
+              <h3 className='red-text'>INTEGRITY</h3>
             </Grid>
             <Grid className="text-center" size={12}>
               <p>
