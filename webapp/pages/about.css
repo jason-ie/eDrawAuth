@@ -1,0 +1,11 @@
+.grey-card {
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+}
+
+.text-center{
+    text-align: center;
+}
