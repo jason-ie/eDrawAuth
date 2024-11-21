@@ -41,11 +41,11 @@ export default function Support() {
         setFormSubmitted(true);
     };
 
-    if (!supportPageData) {
-        return <Typography>Loading...</Typography>;
-    }
+    // if (!supportPageData) {
+    //     return <Typography>Loading...</Typography>;
+    // }
 
-    const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = supportPageData;
+    // const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = supportPageData;
 
     return (
         <>
@@ -53,7 +53,7 @@ export default function Support() {
                 <Grid container className="grey-card">
                     <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }} rowSpacing={6} columnSpacing={2} >
                         <Grid >
-                        <h2 className='heading'>Contact our team</h2>
+                        <h1 className='heading'>Contact our team</h1>
                         <p>
                             We can’t wait to hear from you. Your input is important to us.
                         </p>
@@ -63,7 +63,7 @@ export default function Support() {
                         </Grid>
                         <Grid>
                         <div>
-                            {Description}
+                            {/* {Description} */}
                         </div>
                         <hr className='hr'></hr>
                         <div>Reach out and we’ll get in touch within 24 hours</div>
