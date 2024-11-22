@@ -16,8 +16,8 @@ const navLinks = [
     { label: 'Features', path: '/features' },
     { label: 'About Us', path: '/about' },
     { label: 'Support', path: '/support' },
-    { label: 'Sign Up', path: '/auth/signup' },
-    { label: 'Login', path: '/auth/login' },
+    // { label: 'Sign Up', path: '/auth/signup' },
+    // { label: 'Login', path: '/auth/login' },
 ];
 
 function ResponsiveAppBar() {
@@ -77,8 +77,8 @@ function ResponsiveAppBar() {
                                 </Typography>
                             </Link>
                         ))}
-                        <Link className="signupbtn" href="/auth/signup">
-                            <Button className="signupbtnclr">Sign Up</Button>
+                        <Link className="signupbtn" href="/auth/login">
+                            <Button  className="signupbtnclr">Sign Up</Button>
                         </Link>
                     </Box>
                 </Toolbar>
