@@ -30,3 +30,18 @@
 .red-text{
     color: #D32F2F;
 }
+.image{
+    background-image: url(../public//office.png);
+    height: 40rem;
+    border-radius: 10px;
+    padding: 5rem;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.about-us{
+    background-color: rgba(217, 217, 217, 0.7);
+    padding: 2rem;
+    border-radius: 2;
+}
+
