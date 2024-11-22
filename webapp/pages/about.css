@@ -40,8 +40,11 @@
 }
 
 .about-us{
-    background-color: rgba(217, 217, 217, 0.7);
+    background-color: rgba(217, 217, 217, 0.8);
     padding: 2rem;
     border-radius: 2;
 }
 
+.text-white{
+    color: white;
+}

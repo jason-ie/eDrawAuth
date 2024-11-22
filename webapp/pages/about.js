@@ -20,7 +20,7 @@ export default function AboutUs() {
       <Container className='container'>
         <Grid container rowSpacing={6} columnSpacing={2}>
           <Grid size={12} className="text-center image">
-            <h1>About Us</h1>
+            <h1 className='text-white'>About Us</h1>
             <hr className='hr'></hr>
             <div className='about-us'>
               Headquartered in the historical North End of Boston, MA, enLabel Global Services is a Technology and Consulting Services Company, which provides first-class Integrated Packaging Management (IPM) Solutions to highly-regulated global industries.
