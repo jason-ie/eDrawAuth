@@ -71,6 +71,7 @@ export default function Home() {
                             <Button
                                 variant="contained"
                                 className="getStartedFree"
+                                href='/auth/signup'
                             >
                                 Get Started For
                             </Button>
