@@ -10,14 +10,19 @@ import {
     Grid,
     Button,
     Stack,
-    TextField
+    TextField,
 } from '../src/app/components/muiComponents';
 import './support.css';
 import { useEdrawData } from '../src/app/utils/EdrawDataContext';
 import { useState } from 'react';
+import { useSubmitSupportFormMutation } from '../src/app/redux/api/authApi';
+import { useDispatch } from 'react-redux';
+import { setError } from '../src/app/redux/authSlice';
 
 export default function Support() {
-    const supportPageData = useEdrawData("/api/Support-page");
+    const dispatch = useDispatch();
+    const [submitSupport, { isLoading }] = useSubmitSupportFormMutation();
+    const supportPageData = useEdrawData('/api/Support-page');
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -25,7 +30,7 @@ export default function Support() {
         contactNumber: '',
         email: '',
         companyName: '',
-        message: ''
+        message: '',
     });
 
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -35,10 +40,27 @@ export default function Support() {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Submitted:", formData);
-        setFormSubmitted(true);
+        dispatch(setError(null));
+
+        try {
+            const result = await submitSupport(formData).unwrap();
+
+            if (result.success) {
+                setFormSubmitted(true);
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    contactNumber: '',
+                    email: '',
+                    companyName: '',
+                    message: '',
+                });
+            }
+        } catch (err) {
+            dispatch(setError(err.data?.message || 'Failed to send message'));
+        }
     };
 
     // if (!supportPageData) {
@@ -49,36 +71,46 @@ export default function Support() {
 
     return (
         <>
-            <Container className='container'>
+            <Container className="container">
                 <Grid container className="grey-card">
-                    <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }} rowSpacing={6} columnSpacing={2} >
-                        <Grid >
-                            <h1 className='heading'>Contact our team</h1>
+                    <Grid
+                        size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}
+                        rowSpacing={6}
+                        columnSpacing={2}
+                    >
+                        <Grid>
+                            <h1 className="heading">Contact our team</h1>
                             <p>
-                                We can’t wait to hear from you. Your input is important to us.
+                                We can’t wait to hear from you. Your input is
+                                important to us.
                             </p>
                         </Grid>
-                        <Grid className='support-img1'>
+                        <Grid className="support-img1">
                             <img src="/vector15.png" alt="Vector 2" />
                         </Grid>
                         <Grid>
+                            <div>{/* {Description} */}</div>
+                            <hr className="hr"></hr>
                             <div>
-                                {/* {Description} */}
+                                Reach out and we’ll get in touch within 24 hours
                             </div>
-                            <hr className='hr'></hr>
-                            <div>Reach out and we’ll get in touch within 24 hours</div>
                         </Grid>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
                         <Box className="support-form">
                             <form onSubmit={handleSubmit}>
-                                <Grid container rowSpacing={1} columnSpacing={2} className="support-form">
+                                <Grid
+                                    container
+                                    rowSpacing={1}
+                                    columnSpacing={2}
+                                    className="support-form"
+                                >
                                     <Grid size={6}>
-                                        <div className='text'>First Name *</div>
+                                        <div className="text">First Name *</div>
                                         <TextField
                                             required
                                             fullWidth
-                                            placeholder='First Name'
+                                            placeholder="First Name"
                                             size="small"
                                             name="firstName"
                                             value={formData.firstName}
@@ -90,7 +122,7 @@ export default function Support() {
                                         <TextField
                                             fullWidth
                                             required
-                                            placeholder='Last Name'
+                                            placeholder="Last Name"
                                             size="small"
                                             name="lastName"
                                             value={formData.lastName}
@@ -102,7 +134,7 @@ export default function Support() {
                                         <TextField
                                             fullWidth
                                             required
-                                            placeholder='Enter Contact Number'
+                                            placeholder="Enter Contact Number"
                                             size="small"
                                             name="contactNumber"
                                             value={formData.contactNumber}
@@ -114,7 +146,7 @@ export default function Support() {
                                         <TextField
                                             fullWidth
                                             required
-                                            placeholder='Enter Email ID'
+                                            placeholder="Enter Email ID"
                                             size="small"
                                             name="email"
                                             value={formData.email}
@@ -126,7 +158,7 @@ export default function Support() {
                                         <TextField
                                             fullWidth
                                             required
-                                            placeholder='Enter Company Name '
+                                            placeholder="Enter Company Name "
                                             size="small"
                                             name="companyName"
                                             value={formData.companyName}
@@ -145,16 +177,27 @@ export default function Support() {
                                         />
                                     </Grid>
                                     <Grid size={12}>
-                                        <Button type="submit" className="submitbtn">Submit</Button>
+                                        <Button
+                                            type="submit"
+                                            className="submitbtn"
+                                            disabled={isLoading}
+                                        >
+                                            {isLoading
+                                                ? 'Sending...'
+                                                : 'Submit'}
+                                        </Button>
                                     </Grid>
                                     <Grid size={12}></Grid>
                                 </Grid>
                             </form>
                             {formSubmitted && (
-                                <Typography>Thank you for contacting us! We'll get back to you soon.</Typography>
+                                <Typography>
+                                    Thank you for contacting us! We'll get back
+                                    to you soon.
+                                </Typography>
                             )}
                         </Box>
-                        <img className='support-img' src='/vector17.png' />
+                        <img className="support-img" src="/vector17.png" />
                     </Grid>
                 </Grid>
             </Container>

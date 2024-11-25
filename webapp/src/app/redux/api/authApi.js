@@ -42,6 +42,13 @@ export const authApi = createApi({
                 body: userData,
             }),
         }),
+        submitSupportForm: builder.mutation({
+            query: (formData) => ({
+                url: '/support/contact',
+                method: 'POST',
+                body: formData,
+            }),
+        }),
     }),
 });
 
@@ -51,4 +58,5 @@ export const {
     useLoginMutation,
     useRequestPasswordResetMutation,
     useRequestResendEmailMutation,
+    useSubmitSupportFormMutation,
 } = authApi;
