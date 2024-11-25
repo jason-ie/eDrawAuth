@@ -8,21 +8,24 @@ import {
     Grid,
     Button,
 } from '../src/app/components/muiComponents';
+import { splitAndHighlightMultiple } from '../src/app/utils/EdrawDataContext';
+
 
 export default function Home() {
     const homePageData = useEdrawData('/api/home-page');
 
     if (!homePageData) return <div>Loading...</div>;
     const {
-        Title: edrawTitle,
+        Title,
         Description,
         WhyeDraw,
         WhyeDrawDesc,
         WhyeDrawSubHeading,
         Feature1,
     } = homePageData;
-    const titleParts = edrawTitle.split('e-Draw');
-
+    // const titleParts = edrawTitle.split('e-Draw');
+    const highlightWords = ['e-Draw'];
+    const highlightWords1 = ['flexibility','scalability']
     return (
         <>
             <Container className="container">
@@ -38,8 +41,8 @@ export default function Home() {
                         rowSpacing={1}
                     >
                         <Grid>
-                            <h1>
-                                {titleParts.map((part, index) => (
+                            
+                                {/* {titleParts.map((part, index) => (
                                     <span key={index}>
                                         {part}
                                         {index < titleParts.length - 1 && (
@@ -48,11 +51,14 @@ export default function Home() {
                                             </span>
                                         )}
                                     </span>
-                                ))}
-                            </h1>
+                                ))} */}
+                                 <Grid>
+                            <h1>{splitAndHighlightMultiple(Title, highlightWords)}</h1>
+                        </Grid>
+                          
                         </Grid>
                         <Grid>
-                            <div className="font-18">{Description}</div>
+                            <div className="font-18">{Description }{splitAndHighlightMultiple(Description, highlightWords1)}</div>
                         </Grid>
                         <Grid>
                             <Button
@@ -65,6 +71,7 @@ export default function Home() {
                             <Button
                                 variant="contained"
                                 className="getStartedFree"
+                                href='/auth/signup'
                             >
                                 Get Started For
                             </Button>

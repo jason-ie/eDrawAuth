@@ -41,11 +41,11 @@ export default function Support() {
         setFormSubmitted(true);
     };
 
-    if (!supportPageData) {
-        return <Typography>Loading...</Typography>;
-    }
+    // if (!supportPageData) {
+    //     return <Typography>Loading...</Typography>;
+    // }
 
-    const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = supportPageData;
+    // const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = supportPageData;
 
     return (
         <>
@@ -53,20 +53,20 @@ export default function Support() {
                 <Grid container className="grey-card">
                     <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }} rowSpacing={6} columnSpacing={2} >
                         <Grid >
-                        <h2 className='heading'>Contact our team</h2>
-                        <p>
-                            We can’t wait to hear from you. Your input is important to us.
-                        </p>
+                            <h1 className='heading'>Contact our team</h1>
+                            <p>
+                                We can’t wait to hear from you. Your input is important to us.
+                            </p>
                         </Grid>
                         <Grid className='support-img1'>
-                        <img  src="/vector15.png" alt="Vector 2" />
+                            <img src="/vector15.png" alt="Vector 2" />
                         </Grid>
                         <Grid>
-                        <div>
-                            {Description}
-                        </div>
-                        <hr className='hr'></hr>
-                        <div>Reach out and we’ll get in touch within 24 hours</div>
+                            <div>
+                                {/* {Description} */}
+                            </div>
+                            <hr className='hr'></hr>
+                            <div>Reach out and we’ll get in touch within 24 hours</div>
                         </Grid>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>

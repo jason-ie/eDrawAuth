@@ -1,0 +1,50 @@
+.grey-card {
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+}
+
+
+.container {
+    max-width: 1400px;
+    place-items: center;
+    place-content: center;
+    padding: 2.5rem 0rem;
+}
+.text-center{
+    text-align: center;
+}
+
+.hr{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    place-self: center;
+}
+
+.red-text{
+    color: #D32F2F;
+}
+.image{
+    background-image: url(../public//office.png);
+    height: 40rem;
+    border-radius: 10px;
+    padding: 5rem;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.about-us{
+    background-color: rgba(217, 217, 217, 0.8);
+    padding: 2rem;
+    border-radius: 2;
+}
+
+.text-white{
+    color: white;
+}
