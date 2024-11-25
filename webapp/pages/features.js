@@ -35,7 +35,7 @@ export default function Features() {
 
           </Grid>
           <Grid container className="grey-card">
-            <Grid size={6}>
+            <Grid size={6} className="text-left">
             Multi-Page Authoring: Perfect for IFUs, multi-language labels, and complex documents.
             </Grid>
             <Grid size={6}>
@@ -44,10 +44,10 @@ export default function Features() {
             <Grid size={6}>
             <img  src='/vector24.png' />
             </Grid>
-            <Grid size={6}>
+            <Grid size={6} className="text-left">
             Barcode and QR Code Generation: Create, print, and manage all barcode formats from a single platform.
             </Grid>
-            <Grid size={6}>
+            <Grid size={6} className="text-left">
             Multi-Page Authoring: Perfect for IFUs, multi-language labels, and complex documents.
             </Grid>
             <Grid size={6}>
@@ -56,10 +56,10 @@ export default function Features() {
             <Grid size={6}>
             <img  src='/vector22.png' />
             </Grid>
-            <Grid size={6}>
+            <Grid size={6} className="text-left">
             Database Integration: Automate data updates and reduce manual errors by connecting directly to your data sources.
             </Grid>
-            <Grid size={6}>
+            <Grid size={6} className="text-left">
             Cloud and On-Premise: Work from anywhere with real-time collaboration or secure your data on-premise.
             </Grid>
             <Grid size={6}>
