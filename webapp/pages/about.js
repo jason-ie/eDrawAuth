@@ -71,7 +71,7 @@ export default function AboutUs() {
                 </h3>
               </Grid>
               <Grid>
-                <p>
+                <p className='text-left'>
                   Our patented technology provides for a highly configurable, and highly reliable, off-the-shelf software.
                   We are a single source provider of end-to-end Integrated Packaging Management solutions. We design, develop, deploy, maintain, and support all of our products in-house, at our Boston, MA, headquarters.
                   We are fully committed to understanding our clients' requirements, and exceeding their expectations with innovative solutions.
@@ -85,7 +85,7 @@ export default function AboutUs() {
                 </h3>
               </Grid>
               <Grid>
-                <p>
+                <p className='text-left'>
                   We are committed to creating a culture of Total Quality, where the continuous improvement of our people, our processes, and our products is a way of life.
                   We incorporate client input, and our industry experience, to deliver validated solutions, using our market-proven process for strategic planning and project execution.
                   Visit the Platform and Services sections of our website to learn more about how enLabel Global Services can support your packaging needs.

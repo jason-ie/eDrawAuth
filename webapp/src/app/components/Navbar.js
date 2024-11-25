@@ -77,8 +77,8 @@ function ResponsiveAppBar() {
                                 </Typography>
                             </Link>
                         ))}
-                        <Link className="signupbtn" href="/auth/signup">
-                            <Button className="signupbtnclr">Sign Up</Button>
+                        <Link className="signupbtn" href="/auth/login">
+                            <Button  className="signupbtnclr" sx={{ textTransform: 'none' }}>Sign In</Button>
                         </Link>
                     </Box>
                 </Toolbar>

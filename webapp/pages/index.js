@@ -64,6 +64,8 @@ export default function Home() {
                             <Button
                                 variant="outlined"
                                 className="exoloreFeatures"
+                                href='/features'
+                                sx={{ textTransform: 'none' }}
                             >
                                 Explore Features
                             </Button>
@@ -71,9 +73,10 @@ export default function Home() {
                             <Button
                                 variant="contained"
                                 className="getStartedFree"
+                                sx={{ textTransform: 'none' }}
                                 href='/auth/signup'
                             >
-                                Get Started For
+                                Get Started For Free
                             </Button>
                         </Grid>
                     </Grid>
