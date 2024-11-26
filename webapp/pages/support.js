@@ -1,18 +1,3 @@
-import {
-    AppBar,
-    Box,
-    Toolbar,
-    IconButton,
-    Typography,
-    Menu,
-    Container,
-    MenuItem,
-    Grid,
-    Button,
-    Stack,
-    TextField,
-} from '../src/app/components/muiComponents';
-import './support.css';
 import { useEdrawData } from '../src/app/utils/EdrawDataContext';
 import { useState } from 'react';
 import { useSubmitSupportFormMutation } from '../src/app/redux/api/authApi';
@@ -70,137 +55,121 @@ export default function Support() {
     // const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = supportPageData;
 
     return (
-        <>
-            <Container className="container">
-                <Grid container className="grey-card">
-                    <Grid
-                        size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}
-                        rowSpacing={6}
-                        columnSpacing={2}
-                    >
-                        <Grid>
-                            <h1 className="heading">Contact our team</h1>
+        <div className="max-w-[1400px] mx-auto py-10">
+            <div className="bg-[#F3F3F3] rounded-[30px] p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Left Side */}
+                    <div className="space-y-6 ml-10 place-content-center">
+                        <div>
+                            <h1 className="text-3xl font-bold mb-4">
+                                Contact our team
+                            </h1>
                             <p>
-                                We can’t wait to hear from you. Your input is
+                                We can't wait to hear from you. Your input is
                                 important to us.
                             </p>
-                        </Grid>
-                        <Grid className="support-img1">
+                        </div>
+                        <div className="text-center">
                             <img src="/vector15.png" alt="Vector 2" />
-                        </Grid>
-                        <Grid>
-                            <div>{/* {Description} */}</div>
-                            <hr className="hr"></hr>
+                        </div>
+                        <div>
+                            <hr className="h-1 bg-[#D32F2F] border-0 w-96 my-4" />
                             <div>
-                                Reach out and we’ll get in touch within 24 hours
+                                Reach out and we'll get in touch within 24 hours
                             </div>
-                        </Grid>
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
-                        <Box className="support-form">
-                            <form onSubmit={handleSubmit}>
-                                <Grid
-                                    container
-                                    rowSpacing={1}
-                                    columnSpacing={2}
-                                    className="support-form"
-                                >
-                                    <Grid size={6}>
-                                        <div className="text">First Name *</div>
-                                        <TextField
+                        </div>
+                    </div>
+
+                    {/* Right Side - Form */}
+                    <div className="relative">
+                        <div className="bg-white rounded-[30px] p-8">
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <div className="mb-2">First Name *</div>
+                                        <input
                                             required
-                                            fullWidth
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                                             placeholder="First Name"
-                                            size="small"
                                             name="firstName"
                                             value={formData.firstName}
                                             onChange={handleChange}
                                         />
-                                    </Grid>
-                                    <Grid size={6}>
-                                        <div>Last Name *</div>
-                                        <TextField
-                                            fullWidth
+                                    </div>
+                                    <div>
+                                        <div className="mb-2">Last Name *</div>
+                                        <input
                                             required
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                                             placeholder="Last Name"
-                                            size="small"
                                             name="lastName"
                                             value={formData.lastName}
                                             onChange={handleChange}
                                         />
-                                    </Grid>
-                                    <Grid size={12}>
-                                        <div>Contact Number *</div>
-                                        <TextField
-                                            fullWidth
+                                    </div>
+                                </div>
+
+                                {[
+                                    'contactNumber',
+                                    'email',
+                                    'companyName',
+                                    'message',
+                                ].map((field) => (
+                                    <div key={field}>
+                                        <div className="mb-2">
+                                            {field.charAt(0).toUpperCase() +
+                                                field
+                                                    .slice(1)
+                                                    .replace(
+                                                        /([A-Z])/g,
+                                                        ' $1'
+                                                    )}{' '}
+                                            *
+                                        </div>
+                                        <input
                                             required
-                                            placeholder="Enter Contact Number"
-                                            size="small"
-                                            name="contactNumber"
-                                            value={formData.contactNumber}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                                            placeholder={`Enter ${
+                                                field.charAt(0).toUpperCase() +
+                                                field
+                                                    .slice(1)
+                                                    .replace(/([A-Z])/g, ' $1')
+                                            }`}
+                                            name={field}
+                                            type={
+                                                field === 'email'
+                                                    ? 'email'
+                                                    : 'text'
+                                            }
+                                            value={formData[field]}
                                             onChange={handleChange}
                                         />
-                                    </Grid>
-                                    <Grid size={12}>
-                                        <div>Email ID *</div>
-                                        <TextField
-                                            fullWidth
-                                            required
-                                            placeholder="Enter Email ID"
-                                            size="small"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                        />
-                                    </Grid>
-                                    <Grid size={12}>
-                                        <div>Company Name *</div>
-                                        <TextField
-                                            fullWidth
-                                            required
-                                            placeholder="Enter Company Name "
-                                            size="small"
-                                            name="companyName"
-                                            value={formData.companyName}
-                                            onChange={handleChange}
-                                        />
-                                    </Grid>
-                                    <Grid size={12}>
-                                        <div>Message *</div>
-                                        <TextField
-                                            fullWidth
-                                            required
-                                            size="small"
-                                            name="message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                        />
-                                    </Grid>
-                                    <Grid size={12}>
-                                        <Button
-                                            type="submit"
-                                            className="submitbtn"
-                                            disabled={isLoading}
-                                        >
-                                            {isLoading
-                                                ? 'Sending...'
-                                                : 'Submit'}
-                                        </Button>
-                                    </Grid>
-                                    <Grid size={12}></Grid>
-                                </Grid>
+                                    </div>
+                                ))}
+
+                                <button
+                                    type="submit"
+                                    disabled={isLoading}
+                                    className="w-[20%] bg-[#D32F2F] text-white py-2 rounded-lg hover:bg-red-800 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                >
+                                    {isLoading ? 'Sending...' : 'Submit'}
+                                </button>
                             </form>
+
                             {formSubmitted && (
-                                <Typography>
+                                <p className="mt-4 text-green-600">
                                     Thank you for contacting us! We'll get back
                                     to you soon.
-                                </Typography>
+                                </p>
                             )}
-                        </Box>
-                        <img className="support-img" src="/vector17.png" />
-                    </Grid>
-                </Grid>
-            </Container>
-        </>
+                        </div>
+                        <img
+                            className="absolute top-[45%] -right-16 -z-10"
+                            src="/vector17.png"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }

@@ -51,7 +51,7 @@ function ResponsiveAppBar() {
                         <Link href="/" passHref>
                             <img
                                 className="logo"
-                                src="/e-draw_logo.png"
+                                src="/e-draw_logo1.png"
                                 alt="e-Draw Logo"
                             />
                         </Link>

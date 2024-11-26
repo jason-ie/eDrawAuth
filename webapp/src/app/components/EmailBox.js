@@ -13,17 +13,17 @@ function EmailBox({
         <div className="relative mb-4">
             {/* Icon */}
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <MailIcon className="h-5 w-5 text-red-700" />
+                <MailIcon className="h-6 w-6 text-red-700" />
             </div>
 
             {/* Input Field */}
             <input
                 type="email"
-                className="w-full pl-10 pr-16 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 border-gray-300"
+                className="w-full pl-10 pr-16 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 border-gray-300"
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
-                style={{ fontSize: '14px' }}
+                style={{ fontSize: '15px' }}
                 required
             />
 

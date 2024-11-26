@@ -6,8 +6,8 @@ import store from '../src/app/redux/store';
 import { EdrawDataProvider } from '../src/app/utils/EdrawDataContext';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Grid } from '../src/app/components/muiComponents';
 import '../src/app/global.css';
+import { Grid } from '../src/app/components/muiComponents';
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();

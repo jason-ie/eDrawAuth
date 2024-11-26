@@ -1,43 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router'; // Use Next.js router
+import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { CheckCircleIcon } from '@heroicons/react/solid';
 import PasswordBox from '../../src/app/components/PasswordBox';
-import loginBg from '../../public/login-bg.png';
-import {
-    clearCredentials,
-    setError,
-    setVerificationSuccess,
-} from '../../src/app/redux/authSlice';
-import { useVerifyMutation } from '../../src/app/redux/api/authApi';
+import { setError } from '../../src/app/redux/authSlice';
+import { useVerifyPasswordResetMutation } from '../../src/app/redux/api/authApi';
 
-const PasswordPage = () => {
+const ResetPasswordPage = () => {
     const router = useRouter();
     const dispatch = useDispatch();
-
     const { token } = router.query;
 
-    // Rest of your code stays the same
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [verify, { isLoading }] = useVerifyMutation();
+    const [verify, { isLoading }] = useVerifyPasswordResetMutation();
 
     const error = useSelector((state) => state.auth.error);
-    const verificationSuccess = useSelector(
-        (state) => state.auth.verificationSuccess
-    );
-    const email = useSelector((state) => state.auth.email);
 
     useEffect(() => {
         if (router.isReady && !token) {
-            router.push('/auth/signup');
+            router.push('/auth/login');
             return;
         }
 
         if (router.isReady && token) {
-            document.title = 'Set Password | eDraw';
+            document.title = 'Reset Password | eDraw';
             dispatch(setError(null));
-            dispatch(setVerificationSuccess(true));
         }
     }, [token, router.isReady, dispatch]);
 
@@ -55,34 +42,23 @@ const PasswordPage = () => {
             }).unwrap();
 
             if (result.success) {
-                dispatch(clearCredentials());
                 router.push({
                     pathname: '/auth/login',
                     query: {
-                        message: 'Account verified successfully. Please login.',
+                        message:
+                            'Password reset successful. Please login with your new password.',
                         type: 'success',
                     },
                 });
             }
         } catch (err) {
-            console.error('Verification error:', err);
-            if (err.data?.statusCode === 905) {
-                dispatch(clearCredentials());
-                router.push({
-                    pathname: '/auth/login',
-                    query: {
-                        message: 'Account was already created. Please Login.',
-                        type: 'error',
-                    },
-                });
-            } else {
-                dispatch(
-                    setError(
-                        err.data?.message ||
-                            'An error occurred during verification. Please try again.'
-                    )
-                );
-            }
+            console.error('Reset password error:', err);
+            dispatch(
+                setError(
+                    err.data?.message ||
+                        'Failed to reset password. Please try again or request a new reset link.'
+                )
+            );
         }
     };
 
@@ -92,7 +68,7 @@ const PasswordPage = () => {
 
     return (
         <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
-            {/* Background Image */}
+            {/* Background Images */}
             <div
                 className="absolute inset-y-0 left-0 w-1/2"
                 style={{
@@ -120,30 +96,19 @@ const PasswordPage = () => {
                 />
 
                 <div className="text-center mb-4">
-                    <h1 className="text-2xl font-bold text-gray-900">
-                        Welcome to eDraw
+                    <h1 className="text-xl font-bold text-gray-900">
+                        Reset Your Password
                     </h1>
                     <p className="text-gray-600 mt-2">
-                        Set up your password to complete your account creation
+                        Please enter your new password below
                     </p>
                 </div>
-
-                {/* Success Banner */}
-                {verificationSuccess && (
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 flex items-center">
-                        <CheckCircleIcon className="h-4 w-4 text-green-500 mr-2" />
-                        <span className="text-green-700 font-medium">
-                            Email verified successfully
-                            {email ? `: ${email}` : ''}
-                        </span>
-                    </div>
-                )}
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <PasswordBox
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Create Password*"
+                        placeholder="New Password*"
                         showRequirements={true}
                     />
 
@@ -151,7 +116,7 @@ const PasswordPage = () => {
                         <PasswordBox
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            placeholder="Confirm Password*"
+                            placeholder="Confirm New Password*"
                             isConfirmation={true}
                             primaryPassword={password}
                         />
@@ -171,9 +136,7 @@ const PasswordPage = () => {
                                  disabled:bg-gray-400 disabled:cursor-not-allowed
                                  transition-colors duration-200"
                     >
-                        {isLoading
-                            ? 'Setting up your account...'
-                            : 'Complete Account Setup'}
+                        {isLoading ? 'Resetting password...' : 'Reset Password'}
                     </button>
 
                     <div className="mt-4"></div>
@@ -183,4 +146,4 @@ const PasswordPage = () => {
     );
 };
 
-export default PasswordPage;
+export default ResetPasswordPage;

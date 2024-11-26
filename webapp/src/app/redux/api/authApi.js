@@ -7,9 +7,8 @@ export const authApi = createApi({
     }),
     endpoints: (builder) => ({
         register: builder.mutation({
-            // User registration is a mutation
             query: (userData) => ({
-                url: '/auth/register', // -> localhost:3000/api/auth/register
+                url: '/auth/register',
                 method: 'POST',
                 body: userData,
             }),
@@ -49,6 +48,19 @@ export const authApi = createApi({
                 body: formData,
             }),
         }),
+        verifyPasswordReset: builder.mutation({
+            query: (resetData) => ({
+                url: '/auth/verify',
+                method: 'POST',
+                body: resetData,
+            }),
+        }),
+        getPasswordRequirements: builder.query({
+            query: () => ({
+                url: '/auth/password/requirements',
+                method: 'GET',
+            }),
+        }),
     }),
 });
 
@@ -59,4 +71,6 @@ export const {
     useRequestPasswordResetMutation,
     useRequestResendEmailMutation,
     useSubmitSupportFormMutation,
+    useVerifyPasswordResetMutation,
+    useGetPasswordRequirementsQuery,
 } = authApi;

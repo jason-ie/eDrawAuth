@@ -82,6 +82,14 @@ const VerificationPage = () => {
         <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
             {/* Background Image */}
             <div
+                className="absolute inset-y-0 left-0 w-1/2"
+                style={{
+                    backgroundImage: 'url(/grid.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'left',
+                }}
+            />
+            <div
                 className="absolute inset-y-0 right-0 w-1/2"
                 style={{
                     backgroundImage: 'url(/login-bg.png)',
@@ -97,7 +105,7 @@ const VerificationPage = () => {
             <div className="relative bg-white w-full max-w-2xl mx-auto text-center sm:p-4 rounded-2xl shadow-lg border border-gray-150 m-4">
                 {/* Logo */}
                 <img
-                    src="/e-draw_logo.png"
+                    src="/e-draw_logo1.png"
                     alt="Edraw Logo"
                     className="w-[120px] h-[120px] mx-auto mb-4 object-cover"
                 />
