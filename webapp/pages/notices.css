@@ -1,0 +1,20 @@
+.container{
+    padding: 3rem;
+
+}
+
+.grey-bg {
+    background-color: #F3F3F3;
+}
+
+.card{
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    align-items: center;
+    margin: auto;
+    padding: 5rem;
+}
+
+.red-text{
+    color: #D32F2F;
+}
