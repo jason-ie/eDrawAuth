@@ -22,8 +22,17 @@ export default function Home() {
         WhyeDrawDesc,
         WhyeDrawSubHeading,
         Feature1,
+        Benefit1,
+        Benefit2,
+        Benefit3,
+        Feature1Heading,
+        Feature2heading,
+        Feature3Heading,
+        FeatureDesc1,
+        FeatureDesc2,
+        FeatureDesc3,
     } = homePageData;
-    // const titleParts = edrawTitle.split('e-Draw');
+    
     const highlightWords = ['e-Draw'];
     const highlightWords1 = ['flexibility', 'scalability']
     return (
@@ -77,31 +86,28 @@ export default function Home() {
                     <hr className="Features-hr"></hr>
                     <div className='grid grid-cols-12'>
                         <div className='col-span-4'>
-                            <h4>Barcode Generation</h4>
+                            <h4>{Feature1Heading}</h4>
                             <img src="/vector5.png" alt="Vector 2" />
                             <div className="features-text">
-                                Built-in barcode creation with support for a variety
-                                of formats ensures compliance and efficiency
+                               {FeatureDesc1}
                             </div>
                         </div>
                         <div className='col-span-4'>
-                            <h4>Barcode Generation</h4>
+                            <h4>{Feature2heading}</h4>
                             <img src="/vector6.png" alt="Vector 2" />
                             <div className="features-text">
-                                Built-in barcode creation with support for a variety
-                                of formats ensures compliance and efficiency
+                                {FeatureDesc2}
                             </div>
                         </div>
                         <div className='col-span-4'>
-                            <h4>Barcode Generation</h4>
+                            <h4>{Feature3Heading}</h4>
                             <img
                                 className="share-img"
                                 src="/vector7.png"
                                 alt="Vector 2"
                             />
                             <div className="features-text">
-                                Built-in barcode creation with support for a variety
-                                of formats ensures compliance and efficiency
+                               {FeatureDesc3}
                             </div>
                         </div>
                     </div>
@@ -165,12 +171,7 @@ export default function Home() {
                 <div className='grid grid-cols-12'>
                     <div className='col-span-6'>
                         <p>
-                            Cloud Collaboration Multiple users can work on the
-                            same document in real-time, with full version
-                            control. On-Premise Control Maintain full control
-                            over your data with on-premise hosting, meeting the
-                            needs of high-security environments like life
-                            sciences and pharmaceuticals.
+                           {Benefit1}
                         </p>
                     </div>
                     <div className='col-span-6'>
@@ -182,22 +183,12 @@ export default function Home() {
                     </div>
                     <div className='col-span-6'>
                         <p>
-                            Cloud Collaboration Multiple users can work on the
-                            same document in real-time, with full version
-                            control. On-Premise Control Maintain full control
-                            over your data with on-premise hosting, meeting the
-                            needs of high-security environments like life
-                            sciences and pharmaceuticals.
+                        {Benefit2}
                         </p>
                     </div>
                     <div className='col-span-6'>
                         <p>
-                            Cloud Collaboration Multiple users can work on the
-                            same document in real-time, with full version
-                            control. On-Premise Control Maintain full control
-                            over your data with on-premise hosting, meeting the
-                            needs of high-security environments like life
-                            sciences and pharmaceuticals.
+                        {Benefit3}
                         </p>
                     </div>
                     <div className='col-span-6'>
