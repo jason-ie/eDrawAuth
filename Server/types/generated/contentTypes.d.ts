@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiFeatureFeature extends Struct.SingleTypeSchema {
   collectionName: 'features';
   info: {
+    description: '';
     displayName: 'Feature';
     pluralName: 'features';
     singularName: 'feature';
@@ -383,6 +384,12 @@ export interface ApiFeatureFeature extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    Feature1: Schema.Attribute.Text;
+    Feature2: Schema.Attribute.Text;
+    Feature3: Schema.Attribute.Text;
+    Feature4: Schema.Attribute.Text;
+    Feature5: Schema.Attribute.Text;
     Heading: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

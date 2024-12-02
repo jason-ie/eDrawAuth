@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
                         <div class="col-span-12">
                             {!isAuthPage && <Navbar />}
                         </div>
-                        <div class="col-span-12">
+                        <div class="col-span-12 pt-16">
                             <Component {...pageProps} />
                         </div>
                         <div class="col-span-12">

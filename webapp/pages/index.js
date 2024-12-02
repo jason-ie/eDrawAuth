@@ -32,7 +32,7 @@ export default function Home() {
         FeatureDesc2,
         FeatureDesc3,
     } = homePageData;
-    
+
     const highlightWords = ['e-Draw'];
     const highlightWords1 = ['flexibility', 'scalability']
     return (

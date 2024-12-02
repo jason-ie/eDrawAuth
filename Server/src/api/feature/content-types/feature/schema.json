@@ -4,7 +4,8 @@
   "info": {
     "singularName": "feature",
     "pluralName": "features",
-    "displayName": "Feature"
+    "displayName": "Feature",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,24 @@
   "attributes": {
     "Heading": {
       "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Feature1": {
+      "type": "text"
+    },
+    "Feature2": {
+      "type": "text"
+    },
+    "Feature3": {
+      "type": "text"
+    },
+    "Feature4": {
+      "type": "text"
+    },
+    "Feature5": {
+      "type": "text"
     }
   }
 }
