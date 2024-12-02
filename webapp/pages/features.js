@@ -13,7 +13,17 @@ import {
   Stack,
   TextField
 } from '../src/app/components/muiComponents';
+import { useEdrawData } from '../src/app/utils/EdrawDataContext';
+import { splitAndHighlightMultiple } from '../src/app/utils/EdrawDataContext';
 export default function Features() {
+  const featuresData = useEdrawData('/api/feature');
+  if (!featuresData) return <div>Loading...</div>;
+  const {
+    Heading
+  } = featuresData;
+
+  const highlightWords = ['e-Draw'];
+  const highlightWords1 = ['flexibility', 'scalability']
   return (
     <>
     <Box className="box">
@@ -23,6 +33,7 @@ export default function Features() {
           <Grid container rowSpacing={2} className="grid1">
             <Grid>
               <h1>Explore<span className='red-text'> e-Draw’s</span> Advanced Features</h1>
+              {Heading}
             </Grid>
             <Grid>
               <div>
