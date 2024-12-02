@@ -25,60 +25,50 @@ export default function Features() {
   const highlightWords = ['e-Draw’s'];
   return (
     <>
-    <Box className="box">
-      <Container className='container'>
+      <div className='box'>
 
-        <Grid container>
-          <Grid container rowSpacing={2} className="grid1">
-            <Grid>
-              <h1> {splitAndHighlightMultiple(Heading, highlightWords)}</h1>
-             
-            </Grid>
-            <Grid>
-              <div>
-              {splitAndHighlightMultiple(Description, highlightWords)}
-              </div>
-            </Grid>
-            <Grid>
-                <Button className='get-started'>Get Started</Button>
-            </Grid>
 
-          </Grid>
-          <Grid container className="grey-card">
-            <Grid size={6} className="text-left">
-            {Feature1}
-            </Grid>
-            <Grid size={6}>
-            <img  src='/vector19.png' />
-            </Grid>
-            <Grid size={6}>
-            <img  src='/vector24.png' />
-            </Grid>
-            <Grid size={6} className="text-left">
-            {Feature2}
-            </Grid>
-            <Grid size={6} className="text-left">
-            {Feature3}
-            </Grid>
-            <Grid size={6}>
-            <img  src='/vector21.png' />
-            </Grid>
-            <Grid size={6}>
-            <img  src='/vector22.png' />
-            </Grid>
-            <Grid size={6} className="text-left">
-            {Feature4}
-            </Grid>
-            <Grid size={6} className="text-left">
-            {Feature5}
-            </Grid>
-            <Grid size={6}>
-            <img  src='/vector23.png' />
-            </Grid>
-          </Grid>
-        </Grid>
-      </Container>
-      </Box>
+        <div className='container'>
+          <h1> {splitAndHighlightMultiple(Heading, highlightWords)}</h1>
+          <div>
+            {splitAndHighlightMultiple(Description, highlightWords)}
+          </div>
+          <Button className='get-started'>Get Started</Button>
+          <div className='grid grid-cols-12 grey-card'>
+            <div className='col-span-6'>
+              {Feature1}
+            </div>
+            <div className='col-span-4'>
+              <img src='/vector19.png' />
+            </div>
+            <div className='col-span-6'>
+              <img src='/vector24.png' />
+            </div>
+            <div className='col-span-6'>
+              {Feature2}
+            </div>
+            <div className='col-span-6'>
+              {Feature3}
+            </div>
+            <div className='col-span-6'>
+              <img src='/vector21.png' />
+            </div>
+            <div className='col-span-6'>
+              <img src='/vector22.png' />
+            </div>
+            <div className='col-span-6'>
+              {Feature4}
+            </div>
+            <div className='col-span-6'>
+              {Feature5}
+            </div>
+            <div className='col-span-6'>
+              <img src='/vector23.png' />
+            </div>
+          </div>
+
+        </div>
+      </div>
     </>
   );
 }
