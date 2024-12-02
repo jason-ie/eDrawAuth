@@ -13,20 +13,32 @@ import {
   TextField
 } from '../src/app/components/muiComponents';
 import './about.css';
+import { useEdrawData } from '../src/app/utils/EdrawDataContext';
 
 export default function AboutUs() {
+  const aboutUsData = useEdrawData('/api/about');
+  if (!aboutUsData) return <div>Loading...</div>;
+  const {
+    AboutUs
+  } = aboutUsData;
   return (
     <>
+      <div className='container'>
+        <div>
+          <h1 >About Us</h1>
+          <hr className='hr'></hr>
+          <div className='image'>
+            <div className='about-us'>
+              {AboutUs}
+            </div>
+          </div>
+          <h2>Overview</h2>
+            <hr className='hr'></hr>
+        </div>
+
+      </div>
       <Container className='container'>
         <Grid container rowSpacing={6} columnSpacing={2}>
-          <Grid size={12} className="text-center image">
-            <h1 className='text-white'>About Us</h1>
-            <hr className='hr'></hr>
-            <div className='about-us'>
-              Headquartered in the historical North End of Boston, MA, enLabel Global Services is a Technology and Consulting Services Company, which provides first-class Integrated Packaging Management (IPM) Solutions to highly-regulated global industries.
-              Working diligently with manufacturers and distributors in the Medical Device, Biotech, Pharmaceutical, Aerospace, and Petro/Chemical industries, our main objective is to deliver the highest ROI to our clients by providing a software platform, which supports a uniform architecture, to deliver unsurpassed global packaging solutions.
-            </div>
-          </Grid>
           <Grid className="text-center" size={12} >
             <h2>Overview</h2>
             <hr className='hr'></hr>
