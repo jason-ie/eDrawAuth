@@ -20,13 +20,24 @@ function MyApp({ Component, pageProps }) {
             </Head>
             <Provider store={store}>
                 <EdrawDataProvider>
-                    <Grid container rowSpacing={6}>
+                    {/* <Grid container rowSpacing={6}>
                         <Grid size={12}>{!isAuthPage && <Navbar />}</Grid>
                         <Grid size={12}>
                             <Component {...pageProps} />
                         </Grid>
                         <Grid size={12}>{!isAuthPage && <Footer />}</Grid>
-                    </Grid>
+                    </Grid> */}
+                    <div className='grid grid-cols-12'>
+                        <div class="col-span-12">
+                            {!isAuthPage && <Navbar />}
+                        </div>
+                        <div class="col-span-12">
+                            <Component {...pageProps} />
+                        </div>
+                        <div class="col-span-12">
+                            {!isAuthPage && <Footer />}
+                        </div>
+                    </div>
                 </EdrawDataProvider>
             </Provider>
         </>
