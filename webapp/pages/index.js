@@ -39,7 +39,7 @@ export default function Home() {
         <>
             <div className='container'>
                 <div className='grid grid-cols-12 gap-4'>
-                    <div class="col-span-6">
+                    <div className="col-span-6">
                         <div>
                             <h1>{splitAndHighlightMultiple(Title, highlightWords)}</h1>
                         </div>
@@ -52,7 +52,7 @@ export default function Home() {
 
                         </div>
                     </div>
-                    <div class="col-span-6">
+                    <div className="col-span-6">
                         <img src="/Vector2.png" alt="Vector 2" />
                         <img
                             className="eifu-gif"
@@ -68,10 +68,10 @@ export default function Home() {
             <div className='grey-bg'>
                 <div className='container text-center'>
                     <div className='grid grid-cols-12 gap-4'>
-                        <div class="col-span-6 text-center">
+                        <div className="col-span-6 text-center">
                             <img src="/vector4.png" alt="Vector 2" />
                         </div>
-                        <div class="col-span-6" text-cente>
+                        <div classNamem="col-span-6" text-cente>
                             <h2>{WhyeDraw}</h2>
                             <hr className="hr"></hr>
                             <h3>{WhyeDrawSubHeading}</h3>
