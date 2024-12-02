@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Grid, Typography, TextField, Button, Box } from '../components/muiComponents';
 import './footer.css';
+import Link from 'next/link';
 
 export default function Footer() {
     return (
@@ -10,10 +11,10 @@ export default function Footer() {
                      <Grid container spacing={4} size={6}>
                         <Grid  >
                             <Typography variant="h6" gutterBottom>
-                                Terms and policy
+                                Terms and Policy
                             </Typography>
                             <ul className="font-14" style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
-                                <li><a href="#">Legal Notices</a></li>
+                                <li><Link href="/notices">Legal Notices</Link></li>
                                 <li><a href="#">License Information</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
                                 <li><a href="#">Terms Of Use</a></li>
@@ -27,7 +28,8 @@ export default function Footer() {
                                 <div className="font-14">
                                      300 Commercial St. <br />
                                      Boston, MA. 02109 <br /> <br /> 
-                                     (866) 536-5223</div>
+                                     (866) 536-5223
+                                     </div>
 
                         </Grid>
 

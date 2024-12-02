@@ -48,7 +48,7 @@ function ResponsiveAppBar() {
             <Container className="navbar">
                 <Toolbar disableGutters>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/" passHref>
+                        <Link href="/" passHref className='logoscroll'>
                             <img
                                 className="logo"
                                 src="/e-draw_logo.png"

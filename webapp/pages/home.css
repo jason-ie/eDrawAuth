@@ -1,5 +1,4 @@
 .eifu-gif {
-    position: absolute;
     top: 60px;
     left: 35px;
     place-items: center;
@@ -96,3 +95,24 @@
     flex-direction: column;
     justify-content: center; 
 }
+
+.features-btn{
+    background-color: white;
+    border-color: #D32F2F;
+    color: #D32F2F;
+}
+
+.free-btn {
+    background-color: #D32F2F; 
+    color: white;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+    border-color: #D32F2F;
+  }
+  
+  .free-btn:hover {
+    background-color: #cc2e2ed5; 
+  }
+  
+  .free-btn:active {
+    transform: scale(0.95); 
+  }
