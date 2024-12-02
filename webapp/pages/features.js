@@ -19,11 +19,10 @@ export default function Features() {
   const featuresData = useEdrawData('/api/feature');
   if (!featuresData) return <div>Loading...</div>;
   const {
-    Heading
+    Heading, Description, Feature1, Feature2, Feature3, Feature4, Feature5
   } = featuresData;
 
-  const highlightWords = ['e-Draw'];
-  const highlightWords1 = ['flexibility', 'scalability']
+  const highlightWords = ['e-Draw’s'];
   return (
     <>
     <Box className="box">
@@ -32,12 +31,12 @@ export default function Features() {
         <Grid container>
           <Grid container rowSpacing={2} className="grid1">
             <Grid>
-              <h1>Explore<span className='red-text'> e-Draw’s</span> Advanced Features</h1>
-              {Heading}
+              <h1> {splitAndHighlightMultiple(Heading, highlightWords)}</h1>
+             
             </Grid>
             <Grid>
               <div>
-              <span className='red-text'>e-Draw’s</span> is your all-in-one solution for creating high-quality labels, documents, and packaging materials. Designed with flexibility and scalability in mind, it’s perfect for both small and global enterprises.
+              {splitAndHighlightMultiple(Description, highlightWords)}
               </div>
             </Grid>
             <Grid>
@@ -47,7 +46,7 @@ export default function Features() {
           </Grid>
           <Grid container className="grey-card">
             <Grid size={6} className="text-left">
-            Multi-Page Authoring: Perfect for IFUs, multi-language labels, and complex documents.
+            {Feature1}
             </Grid>
             <Grid size={6}>
             <img  src='/vector19.png' />
@@ -56,10 +55,10 @@ export default function Features() {
             <img  src='/vector24.png' />
             </Grid>
             <Grid size={6} className="text-left">
-            Barcode and QR Code Generation: Create, print, and manage all barcode formats from a single platform.
+            {Feature2}
             </Grid>
             <Grid size={6} className="text-left">
-            Multi-Page Authoring: Perfect for IFUs, multi-language labels, and complex documents.
+            {Feature3}
             </Grid>
             <Grid size={6}>
             <img  src='/vector21.png' />
@@ -68,10 +67,10 @@ export default function Features() {
             <img  src='/vector22.png' />
             </Grid>
             <Grid size={6} className="text-left">
-            Database Integration: Automate data updates and reduce manual errors by connecting directly to your data sources.
+            {Feature4}
             </Grid>
             <Grid size={6} className="text-left">
-            Cloud and On-Premise: Work from anywhere with real-time collaboration or secure your data on-premise.
+            {Feature5}
             </Grid>
             <Grid size={6}>
             <img  src='/vector23.png' />
