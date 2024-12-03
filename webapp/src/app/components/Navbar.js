@@ -40,50 +40,50 @@ function ResponsiveAppBar() {
     }, []);
 
     return (
-        <AppBar
-            className={`navbar-bg ${scrolled ? 'navbar-scrolled' : ''}`}
-            position="fixed"
-            elevation={0}
-        >
-            <Container className="navbar">
-                <Toolbar disableGutters>
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/" passHref className='logoscroll'>
+        <>
+            <nav
+                className={`fixed top-0 left-0 w-full ${scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+                    }`}
+            >
+                <div className="container mx-auto flex items-center justify-between py-4">
+                    {/* Logo Section */}
+                    <div>
+                        <a href="/" className="flex items-center">
                             <img
-                                className="logo"
+                                className="h-10"
                                 src="/e-draw_logo.png"
                                 alt="e-Draw Logo"
                             />
-                        </Link>
-                    </Box>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            flexGrow: 1,
-                        }}
-                    >
+                        </a>
+                    </div>
+
+                    {/* Navigation Links */}
+                    <div className="flex items-center space-x-6">
                         {navLinks.map((link) => (
-                            <Link key={link.path} href={link.path} passHref>
-                                <Typography
-                                    className={
-                                        router.pathname === link.path
-                                            ? 'active-link'
-                                            : ''
-                                    }
-                                    sx={{ my: 2, mx: 2 }}
-                                >
-                                    {link.label}
-                                </Typography>
-                            </Link>
+                            <a
+                                key={link.path}
+                                href={link.path}
+                                className={`text-lg font-medium ${router.pathname === link.path
+                                        ? 'text-blue-500 underline'
+                                        : 'text-gray-600 hover:text-blue-500'
+                                    }`}
+                            >
+                                {link.label}
+                            </a>
                         ))}
-                        <Link className="signupbtn" href="/auth/login">
-                            <Button  className="signupbtnclr" sx={{ textTransform: 'none' }}>Sign In</Button>
-                        </Link>
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
+
+                        {/* Sign In Button */}
+                        <a href="/auth/login">
+                            <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
+                                Sign In
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+           
+        </>
     );
 }
 
