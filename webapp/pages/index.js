@@ -71,7 +71,7 @@ export default function Home() {
                         <div className="col-span-6 text-center">
                             <img src="/vector4.png" alt="Vector 2" />
                         </div>
-                        <div classNamem="col-span-6" text-cente>
+                        <div className="col-span-6">
                             <h2>{WhyeDraw}</h2>
                             <hr className="hr"></hr>
                             <h3>{WhyeDrawSubHeading}</h3>
