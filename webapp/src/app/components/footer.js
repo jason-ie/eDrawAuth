@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <>
             <footer>
-                <div className='container'>
+                <div className='container justify-center'>
                     <div className='grid grid-cols-12'>
                         <div className='col-span-3'>
                             <Typography variant="h6" gutterBottom>

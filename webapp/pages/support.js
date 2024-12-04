@@ -71,7 +71,7 @@ export default function Support() {
     const inputclassname = " required w-full py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm/6  border-gray-200 rounded-[5px] focus:border-white focus:outline-none focus:ring-2 focus:border-gray-400"
     return (
         <>
-            <div className='container'>
+            <div className='container justify-center'>
                 <div className='grey-card'>
                     <div className='grid grid-cols-12'>
                         <div className='col-span-6'>

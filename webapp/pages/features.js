@@ -26,11 +26,9 @@ export default function Features() {
   return (
     <>
       <div className='box'>
-
-
-        <div className='container'>
+        <div className='container justify-center'>
           <h1> {splitAndHighlightMultiple(Heading, highlightWords)}</h1>
-          <div>
+          <div className='py-4'>
             {splitAndHighlightMultiple(Description, highlightWords)}
           </div>
           <Button className='get-started'>Get Started</Button>

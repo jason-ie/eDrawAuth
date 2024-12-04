@@ -78,6 +78,7 @@
     border: none;
     width: 20rem;
     margin-top: 1rem;
+    /* justify-self: center; */
 }
 .img-center{
     text-align: center;
