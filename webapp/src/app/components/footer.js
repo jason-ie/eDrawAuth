@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <>
             <footer>
-                <div className='container justify-center'>
+                <div className='container-footer justify-center'>
                     <div className='grid grid-cols-12'>
                         <div className='col-span-3'>
                             <Typography variant="h6" gutterBottom>
@@ -50,14 +50,19 @@ export default function Footer() {
                         </div>
 
                     </div>
-                    <hr></hr>
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <hr class="w-full  border-gray-300" />
+                    <div className="flex items-center justify-start space-x-4">
                         <img
                             src="/enlabellogo.png"
                             alt="Vector 2"
+                            className="h-8 w-auto"
                         />
-                        <div >© 2024 enLabel Global Services, Inc. All rights reserved.</div>
-                    </Box>
+                        <div className="text-sm text-gray-600">
+                            © 2024 enLabel Global Services, Inc. All rights reserved.
+                        </div>
+                    </div>
+
+
                 </div>
             </footer>
 
