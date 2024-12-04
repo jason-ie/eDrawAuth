@@ -36,8 +36,8 @@ export default function Home() {
     const highlightWords = ['e-Draw'];
     const highlightWords1 = ['flexibility', 'scalability']
     return (
-        <>
-            <div className='container'>
+        <div className='text'>
+            <div className='container justify-center'>
                 <div className='grid grid-cols-12 gap-4'>
                     <div className="col-span-6">
                         <div>
@@ -53,16 +53,8 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="col-span-6">
-                        <img src="/Vector2.png" alt="Vector 2" />
-                        <img
-                            className="eifu-gif"
-                            src="/Vector3.png"
-                            alt="Vector 3"
-                        />
+                        <img src="/Frame 64.png" alt="Vector 2" />
                     </div>
-                </div>
-                <div className='grey-bg'>
-                    <div>  {Description}{splitAndHighlightMultiple(Description, highlightWords1)}</div>
                 </div>
             </div>
             <div className='grey-bg'>
@@ -80,7 +72,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className='container'>
+            <div className='container justify-center'>
                 <div className='grey-card'>
                     <h2>Features</h2>
                     <hr className="Features-hr"></hr>
@@ -89,7 +81,7 @@ export default function Home() {
                             <h4>{Feature1Heading}</h4>
                             <img src="/vector5.png" alt="Vector 2" />
                             <div className="features-text">
-                               {FeatureDesc1}
+                                {FeatureDesc1}
                             </div>
                         </div>
                         <div className='col-span-4'>
@@ -107,14 +99,14 @@ export default function Home() {
                                 alt="Vector 2"
                             />
                             <div className="features-text">
-                               {FeatureDesc3}
+                                {FeatureDesc3}
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div className='container'>
+            <div className='container justify-center'>
                 <div className='grid grid-cols-12'>
                     <div className='col-span-7'>
                         <h2> {WhyeDraw}</h2>
@@ -147,7 +139,7 @@ export default function Home() {
                 </div>
 
             </div>
-            <div className='container'>
+            <div className='container justify-center'>
                 <div className='grid grid-cols-12'>
                     <div className='col-span-7'>
                         <h2> {WhyeDraw}</h2>
@@ -171,7 +163,7 @@ export default function Home() {
                 <div className='grid grid-cols-12'>
                     <div className='col-span-6'>
                         <p>
-                           {Benefit1}
+                            {Benefit1}
                         </p>
                     </div>
                     <div className='col-span-6'>
@@ -183,12 +175,12 @@ export default function Home() {
                     </div>
                     <div className='col-span-6'>
                         <p>
-                        {Benefit2}
+                            {Benefit2}
                         </p>
                     </div>
                     <div className='col-span-6'>
                         <p>
-                        {Benefit3}
+                            {Benefit3}
                         </p>
                     </div>
                     <div className='col-span-6'>
@@ -197,6 +189,6 @@ export default function Home() {
 
                 </div>
             </div>
-        </>
+        </div>
     );
 }

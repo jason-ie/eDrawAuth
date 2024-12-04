@@ -116,3 +116,7 @@
   .free-btn:active {
     transform: scale(0.95); 
   }
+
+  .justify-center{
+    justify-self: center;
+  }
