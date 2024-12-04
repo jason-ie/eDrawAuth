@@ -45,7 +45,7 @@ function ResponsiveAppBar() {
                 className={`fixed top-0 left-0 w-full ${scrolled ? 'bg-white shadow-md' : 'bg-transparent'
                     }`}
             >
-                <div className="container mx-auto flex items-center justify-between py-4">
+                <div className="container mx-auto flex items-center justify-between ">
                     {/* Logo Section */}
                     <div>
                         <a href="/" className="flex items-center">
@@ -81,8 +81,6 @@ function ResponsiveAppBar() {
                     </div>
                 </div>
             </nav>
-
-           
         </>
     );
 }
