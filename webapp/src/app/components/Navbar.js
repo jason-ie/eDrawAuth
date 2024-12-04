@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import './navbar.css';
-import {
-    AppBar,
-    Box,
-    Toolbar,
-    Typography,
-    Container,
-} from '../components/muiComponents';
-import Button from './Button';
 
 const navLinks = [
     { label: 'Home', path: '/' },
@@ -26,11 +17,7 @@ function ResponsiveAppBar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            setScrolled(window.scrollY > 50);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -40,48 +27,56 @@ function ResponsiveAppBar() {
     }, []);
 
     return (
-        <>
-            <nav
-                className={`fixed top-0 left-0 w-full ${scrolled ? 'bg-white shadow-md' : 'bg-transparent'
-                    }`}
-            >
-                <div className="container mx-auto flex items-center justify-between ">
-                    {/* Logo Section */}
-                    <div>
-                        <a href="/" className="flex items-center">
-                            <img
-                                className="h-10"
-                                src="/e-draw_logo.png"
-                                alt="e-Draw Logo"
-                            />
-                        </a>
-                    </div>
-
-                    {/* Navigation Links */}
-                    <div className="flex items-center space-x-6">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.path}
-                                href={link.path}
-                                className={`text-lg font-medium ${router.pathname === link.path
-                                        ? 'text-blue-500 underline'
-                                        : 'text-gray-600 hover:text-blue-500'
-                                    }`}
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-
-                        {/* Sign In Button */}
-                        <a href="/auth/login">
-                            <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
-                                Sign In
-                            </button>
-                        </a>
-                    </div>
+        <nav
+            className={`navbar-bg fixed top-0 left-0 w-full transition-all ${
+                scrolled ? 'navbar-scrolled shadow-md' : 'bg-transparent'
+            }`}
+        >
+            <div className="navbar mx-auto flex items-center justify-between pt-1 pb-1">
+                {/* Logo Section */}
+                <div>
+                    <a href="/" className="flex items-center">
+                        <img
+                            className={`logo ${
+                                scrolled ? 'logoscroll' : ''
+                            }`}
+                            src="/e-draw_logo.png"
+                            alt="e-Draw Logo"
+                        />
+                    </a>
                 </div>
-            </nav>
-        </>
+
+                {/* Navigation Links */}
+                <div className="flex items-center space-x-6">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.path}
+                            href={link.path}
+                            className={`text-lg font-medium pr-6 ${
+                                router.pathname === link.path
+                                    ? 'active-link'
+                                    : 'text-gray-600 hover:text-blue-500'
+                            }`}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+
+                    {/* Sign In Button */}
+                    <a href="/auth/login">
+                        <button
+                            className={`    ${
+                                scrolled
+                                    ? 'signupbtnclr border-none py-3 px-4 rounded '
+                                    : 'signupbtnclr   border-none py-3 px-4 rounded'
+                            }`}
+                        >
+                            Sign In
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </nav>
     );
 }
 
