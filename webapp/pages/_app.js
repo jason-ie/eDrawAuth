@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Grid } from '../src/app/components/muiComponents';
 import '../src/app/global.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
