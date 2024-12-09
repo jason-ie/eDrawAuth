@@ -6,8 +6,8 @@ const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'Features', path: '/features' },
     { label: 'About Us', path: '/about' },
-    { label: 'Sign Up', path: '/auth/signup' },
-    { label: 'Login', path: '/auth/login' },
+    // { label: 'Sign Up', path: '/auth/signup' },
+    // { label: 'Login', path: '/auth/login' },
     { label: 'Support', path: '/support' },
 ];
 

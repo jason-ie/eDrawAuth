@@ -73,14 +73,14 @@ export default function Support() {
         <>
             <div className='container justify-center'>
                 <div className='grey-card'>
-                    <div className='grid grid-cols-12'>
-                        <div className='col-span-6'>
+                    <div className='grid grid-cols-12 '>
+                        <div className='col-span-6 justify-center'>
                             <h1 className="heading">Contact our team</h1>
                             <p>
                                 We can’t wait to hear from you. Your input is
                                 important to us.
                             </p>
-                            <img src="/vector15.png" alt="Vector 2" />
+                            <img className='justify-img' src="/vector15.png" alt="Vector 2" />
                             <hr className="hr"></hr>
                             <div>
                                 Reach out and we’ll get in touch within 24 hours
