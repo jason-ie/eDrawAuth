@@ -38,11 +38,6 @@
     "WhyeDrawSubHeading": {
       "type": "string"
     },
-    "Feature1": {
-      "type": "component",
-      "repeatable": false,
-      "component": "card.test"
-    },
     "Feature1Heading": {
       "type": "string"
     },
@@ -71,6 +66,15 @@
       "type": "string"
     },
     "FeatureDesc5": {
+      "type": "text"
+    },
+    "Benefit1": {
+      "type": "text"
+    },
+    "Benefit2": {
+      "type": "text"
+    },
+    "Benefit3": {
       "type": "text"
     }
   }

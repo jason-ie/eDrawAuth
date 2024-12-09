@@ -29,5 +29,8 @@
     border-radius: 30px;
     align-items: center;
     margin: auto;
-    padding: 2rem;
+    padding: 5rem;
 }
+.justify-center{
+    justify-self: center;
+  }

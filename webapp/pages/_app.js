@@ -8,6 +8,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import '../src/app/global.css';
 import { Grid } from '../src/app/components/muiComponents';
+import '../src/app/global.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
@@ -20,13 +22,24 @@ function MyApp({ Component, pageProps }) {
             </Head>
             <Provider store={store}>
                 <EdrawDataProvider>
-                    <Grid container rowSpacing={6}>
+                    {/* <Grid container rowSpacing={6}>
                         <Grid size={12}>{!isAuthPage && <Navbar />}</Grid>
                         <Grid size={12}>
                             <Component {...pageProps} />
                         </Grid>
                         <Grid size={12}>{!isAuthPage && <Footer />}</Grid>
-                    </Grid>
+                    </Grid> */}
+                    <div className="grid grid-cols-12">
+                        <div className="col-span-12">
+                            {!isAuthPage && <Navbar />}
+                        </div>
+                        <div className="col-span-12 pt-16">
+                            <Component {...pageProps} />
+                        </div>
+                        <div className="col-span-12">
+                            {!isAuthPage && <Footer />}
+                        </div>
+                    </div>
                 </EdrawDataProvider>
             </Provider>
         </>

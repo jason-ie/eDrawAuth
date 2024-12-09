@@ -50,3 +50,11 @@ a {
 .font-18 {
     /* font-size: 18px; */
 }
+.justify-center{
+    justify-self: center;
+  }
+
+  .align-center{
+    align-self: center;
+
+  }

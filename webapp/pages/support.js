@@ -53,123 +53,138 @@ export default function Support() {
     // }
 
     // const { Title: edrawTitle, Description, WhyeDraw, WhyeDrawDesc, WhyeDrawSubHeading, Feature1 } = supportPageData;
-
+    const inputclassname =
+        ' required w-full py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm/6  border-gray-200 rounded-[5px] focus:border-white focus:outline-none focus:ring-2 focus:border-gray-400';
     return (
-        <div className="max-w-[1400px] mx-auto py-10">
-            <div className="bg-[#F3F3F3] rounded-[30px] p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Left Side */}
-                    <div className="space-y-6 ml-10 place-content-center">
-                        <div>
-                            <h1 className="text-3xl font-bold mb-4">
-                                Contact our team
-                            </h1>
+        <>
+            <div className="container justify-center">
+                <div className="grey-card">
+                    <div className="grid grid-cols-12 ">
+                        <div className="col-span-6 justify-center">
+                            <h1 className="heading">Contact our team</h1>
                             <p>
                                 We can't wait to hear from you. Your input is
                                 important to us.
                             </p>
-                        </div>
-                        <div className="text-center">
-                            <img src="/vector15.png" alt="Vector 2" />
-                        </div>
-                        <div>
-                            <hr className="h-1 bg-[#D32F2F] border-0 w-96 my-4" />
+                            <img
+                                className="justify-img"
+                                src="/vector15.png"
+                                alt="Vector 2"
+                            />
+                            <hr className="hr"></hr>
                             <div>
                                 Reach out and we'll get in touch within 24 hours
                             </div>
                         </div>
-                    </div>
 
-                    {/* Right Side - Form */}
-                    <div className="relative">
-                        <div className="bg-white rounded-[30px] p-8">
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <div className="mb-2">First Name *</div>
-                                        <input
-                                            required
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-                                            placeholder="First Name"
-                                            name="firstName"
-                                            value={formData.firstName}
-                                            onChange={handleChange}
-                                        />
+                        <div className="col-span-6 support-form">
+                            <form onSubmit={handleSubmit}>
+                                <div className=" grid grid-cols-12">
+                                    <div className="col-span-6">
+                                        <label htmlFor="firstname">
+                                            First Name *
+                                        </label>
+                                        <div className="mt-2">
+                                            <input
+                                                type="text"
+                                                placeholder="First Name"
+                                                className={inputclassname}
+                                                value={formData.firstName}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div className="mb-2">Last Name *</div>
-                                        <input
-                                            required
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-                                            placeholder="Last Name"
-                                            name="lastName"
-                                            value={formData.lastName}
-                                            onChange={handleChange}
-                                        />
+                                    <div className="col-span-6">
+                                        <label htmlFor="price">
+                                            Last name *
+                                        </label>
+                                        <div className="mt-2">
+                                            <input
+                                                id="lastname"
+                                                name="lastname"
+                                                type="text"
+                                                placeholder="Last name *"
+                                                className={inputclassname}
+                                                value={formData.lastName}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-span-12">
+                                        <label htmlFor="price">
+                                            Contact Number *
+                                        </label>
+                                        <div className="mt-2">
+                                            <input
+                                                id="contactnumber"
+                                                name="contactnumber"
+                                                type="text"
+                                                placeholder="Enter Contact Number"
+                                                className={inputclassname}
+                                                value={formData.contactNumber}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-span-12">
+                                        <label htmlFor="price">
+                                            Email ID *
+                                        </label>
+                                        <div className="mt-2">
+                                            <input
+                                                id="emailid"
+                                                name="emailid"
+                                                type="text"
+                                                placeholder="Enter Email ID "
+                                                className={inputclassname}
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-span-12">
+                                        <label htmlFor="price">
+                                            Company Name *
+                                        </label>
+                                        <div className="mt-2">
+                                            <input
+                                                id="companyname"
+                                                name="companyname"
+                                                type="text"
+                                                placeholder="Enter Compnay Name"
+                                                className={inputclassname}
+                                                value={formData.companyName}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-span-12">
+                                        <label htmlFor="price">Message</label>
+                                        <div className="mt-2">
+                                            <input
+                                                id="message"
+                                                name="message"
+                                                type="text"
+                                                placeholder="Message"
+                                                className={inputclassname}
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
-
-                                {[
-                                    'contactNumber',
-                                    'email',
-                                    'companyName',
-                                    'message',
-                                ].map((field) => (
-                                    <div key={field}>
-                                        <div className="mb-2">
-                                            {field.charAt(0).toUpperCase() +
-                                                field
-                                                    .slice(1)
-                                                    .replace(
-                                                        /([A-Z])/g,
-                                                        ' $1'
-                                                    )}{' '}
-                                            *
-                                        </div>
-                                        <input
-                                            required
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-                                            placeholder={`Enter ${
-                                                field.charAt(0).toUpperCase() +
-                                                field
-                                                    .slice(1)
-                                                    .replace(/([A-Z])/g, ' $1')
-                                            }`}
-                                            name={field}
-                                            type={
-                                                field === 'email'
-                                                    ? 'email'
-                                                    : 'text'
-                                            }
-                                            value={formData[field]}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                ))}
-
-                                <button
+                                <Button
                                     type="submit"
+                                    className="submitbtn"
                                     disabled={isLoading}
-                                    className="w-[20%] bg-[#D32F2F] text-white py-2 rounded-lg hover:bg-red-800 disabled:bg-gray-400 disabled:cursor-not-allowed"
                                 >
                                     {isLoading ? 'Sending...' : 'Submit'}
-                                </button>
+                                </Button>
                             </form>
-
-                            {formSubmitted && (
-                                <p className="mt-4 text-green-600">
-                                    Thank you for contacting us! We'll get back
-                                    to you soon.
-                                </p>
-                            )}
                         </div>
-                        <img
-                            className="absolute top-[45%] -right-16 -z-10"
-                            src="/vector17.png"
-                        />
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
