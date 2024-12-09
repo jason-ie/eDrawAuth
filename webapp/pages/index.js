@@ -36,51 +36,49 @@ export default function Home() {
     const highlightWords = ['e-Draw'];
     const highlightWords1 = ['flexibility', 'scalability']
     return (
-        <>
-            <div className='container'>
+        <div className='text'>
+            <div className='container justify-center'>
                 <div className='grid grid-cols-12 gap-4'>
-                    <div class="col-span-6">
-                        <div>
+                    <div className="col-span-6 align-center">
+                        <div className='pt-8'>
                             <h1>{splitAndHighlightMultiple(Title, highlightWords)}</h1>
                         </div>
-                        <div className="font-18">
+                        <div className="font-18 pt-8">
                             {Description}{splitAndHighlightMultiple(Description, highlightWords1)}
                         </div>
-                        <div>
-                            <button className='features-btn p-2 text-base rounded  mr-20' href='/features'>Explore Features</button>
-                            <button className='free-btn p-2 text-base rounded ml-10 ' href='/auth/signup'>  Get Started For Free</button>
+                        <div className='pt-8'>
+                            <Link href="/features">
+                                <button className="features-btn p-2 text-base rounded mr-20">
+                                    Explore Features
+                                </button>
+                            </Link>
+                            <Link href='/auth/signup'>
+                            <button className='free-btn p-2 text-base rounded ml-10 ' >  Get Started For Free</button>
+                            </Link>
 
                         </div>
                     </div>
-                    <div class="col-span-6">
-                        <img src="/Vector2.png" alt="Vector 2" />
-                        <img
-                            className="eifu-gif"
-                            src="/Vector3.png"
-                            alt="Vector 3"
-                        />
+                    <div className="col-span-6 justify-center">
+                        <img src="/Frame 64.png" alt="Vector 2" />
                     </div>
-                </div>
-                <div className='grey-bg'>
-                    <div>  {Description}{splitAndHighlightMultiple(Description, highlightWords1)}</div>
                 </div>
             </div>
             <div className='grey-bg'>
                 <div className='container text-center'>
                     <div className='grid grid-cols-12 gap-4'>
-                        <div class="col-span-6 text-center">
+                        <div className="col-span-6 justify-center">
                             <img src="/vector4.png" alt="Vector 2" />
                         </div>
-                        <div class="col-span-6" text-cente>
-                            <h2>{WhyeDraw}</h2>
-                            <hr className="hr"></hr>
-                            <h3>{WhyeDrawSubHeading}</h3>
+                        <div className="col-span-6 align-center">
+                            <h2 >{WhyeDraw}</h2>
+                            <hr className="hr m-4"></hr>
+                            <h3 className='mb-4'>{WhyeDrawSubHeading}</h3>
                             <p className="font-18">{WhyeDrawDesc}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='container'>
+            <div className='container justify-center'>
                 <div className='grey-card'>
                     <h2>Features</h2>
                     <hr className="Features-hr"></hr>
@@ -89,7 +87,7 @@ export default function Home() {
                             <h4>{Feature1Heading}</h4>
                             <img src="/vector5.png" alt="Vector 2" />
                             <div className="features-text">
-                               {FeatureDesc1}
+                                {FeatureDesc1}
                             </div>
                         </div>
                         <div className='col-span-4'>
@@ -107,21 +105,21 @@ export default function Home() {
                                 alt="Vector 2"
                             />
                             <div className="features-text">
-                               {FeatureDesc3}
+                                {FeatureDesc3}
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div className='container'>
+            <div className='container justify-center'>
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-7'>
+                    <div className='col-span-7 align-center'>
                         <h2> {WhyeDraw}</h2>
                         <hr className="hr2"></hr>
-                        <h4>{WhyeDrawSubHeading}</h4>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
                         <p> {WhyeDrawDesc}</p>
-                        <h4>{WhyeDrawSubHeading}</h4>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
                         <p> {WhyeDrawDesc}</p>
                     </div>
                     <div className='col-span-4 text-center'>
@@ -135,26 +133,26 @@ export default function Home() {
                         <div className='col-span-5'>
                             <img src="/vector9.png" alt="Vector 2" />
                         </div>
-                        <div className='col-span-7'>
+                        <div className='col-span-7 align-center'>
                             <h2> {WhyeDraw}</h2>
                             <hr className="hr2"></hr>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                            <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
                             <p> {WhyeDrawDesc}</p>
-                            <h4>{WhyeDrawSubHeading}</h4>
+                            <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
                             <p> {WhyeDrawDesc}</p>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div className='container'>
+            <div className='container justify-center'>
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-7'>
+                    <div className='col-span-7 align-center'>
                         <h2> {WhyeDraw}</h2>
                         <hr className="hr2"></hr>
-                        <h4>{WhyeDrawSubHeading}</h4>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
                         <p> {WhyeDrawDesc}</p>
-                        <h4>{WhyeDrawSubHeading}</h4>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
                         <p> {WhyeDrawDesc}</p>
                     </div>
                     <div className='col-span-4 text-center'>
@@ -166,12 +164,12 @@ export default function Home() {
                 <div className='grid-cols-1'></div>
             </div>
             <div className='grey-bg'>
-                <h2>Benefits</h2>
+                <h2 className='pt-8'>Benefits</h2>
                 <hr className="Features-hr"></hr>
-                <div className='grid grid-cols-12'>
+                <div className='grid container grid-cols-12'>
                     <div className='col-span-6'>
                         <p>
-                           {Benefit1}
+                            {Benefit1}
                         </p>
                     </div>
                     <div className='col-span-6'>
@@ -183,20 +181,19 @@ export default function Home() {
                     </div>
                     <div className='col-span-6'>
                         <p>
-                        {Benefit2}
+                            {Benefit2}
                         </p>
                     </div>
                     <div className='col-span-6'>
                         <p>
-                        {Benefit3}
+                            {Benefit3}
                         </p>
                     </div>
                     <div className='col-span-6'>
                         <img src="/vector11.png" alt="Vector 2" />
                     </div>
-
                 </div>
             </div>
-        </>
+        </div>
     );
 }

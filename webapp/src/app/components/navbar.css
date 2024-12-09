@@ -21,7 +21,7 @@
 }
 
 .active-link {
-  color: #D32F2F;
+  color: #D32F2F !important;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -46,15 +46,17 @@
 .signupbtnclr {
   background-color: #D32F2F;
   color: white;
+  font-size: 14px;
 }
 
 .navbar-scrolled .signupbtnclr {
   background-color: #ffffff;
   color: #D32F2F;
+  font-size: 14px;
 }
 
 .navbar-bg {
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-bg.navbar-scrolled {
@@ -70,5 +72,11 @@
 .navbar-scrolled .logoscroll {
   background: white;
   border-radius: 8px;
-  transition: color 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.container {
+  max-width: 1400px;
+  place-items: center;
+  place-content: center;
 }

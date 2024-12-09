@@ -58,3 +58,7 @@
 .heading{
     margin-bottom: 1rem;
 }
+
+.justify-img{
+    justify-items: center;
+}

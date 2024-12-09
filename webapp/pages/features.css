@@ -31,3 +31,6 @@
     margin: auto;
     padding: 5rem;
 }
+.justify-center{
+    justify-self: center;
+  }

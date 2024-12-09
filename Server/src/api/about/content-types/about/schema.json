@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about",
     "pluralName": "abouts",
-    "displayName": "About"
+    "displayName": "About",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +13,21 @@
   "pluginOptions": {},
   "attributes": {
     "AboutUs": {
+      "type": "text"
+    },
+    "ourguarantee": {
+      "type": "text"
+    },
+    "systematicapproach": {
+      "type": "text"
+    },
+    "innovation": {
+      "type": "text"
+    },
+    "improvement": {
+      "type": "text"
+    },
+    "integrity": {
       "type": "text"
     }
   }

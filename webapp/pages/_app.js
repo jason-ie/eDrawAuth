@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Grid } from '../src/app/components/muiComponents';
 import '../src/app/global.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
@@ -28,13 +29,13 @@ function MyApp({ Component, pageProps }) {
                         <Grid size={12}>{!isAuthPage && <Footer />}</Grid>
                     </Grid> */}
                     <div className='grid grid-cols-12'>
-                        <div class="col-span-12">
+                        <div className="col-span-12">
                             {!isAuthPage && <Navbar />}
                         </div>
-                        <div class="col-span-12 pt-16">
+                        <div className="col-span-12 pt-16">
                             <Component {...pageProps} />
                         </div>
-                        <div class="col-span-12">
+                        <div className="col-span-12">
                             {!isAuthPage && <Footer />}
                         </div>
                     </div>
