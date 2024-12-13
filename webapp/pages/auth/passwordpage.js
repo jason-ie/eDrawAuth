@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'; // Use Next.js router
 import { useDispatch, useSelector } from 'react-redux';
 import { CheckCircleIcon } from '@heroicons/react/solid';
 import PasswordBox from '../../src/app/components/PasswordBox';
-import loginBg from '../../public/login-bg.png';
 import {
     clearCredentials,
     setError,
@@ -11,6 +10,14 @@ import {
 } from '../../src/app/redux/authSlice';
 import { useVerifyMutation } from '../../src/app/redux/api/authApi';
 
+/**
+ * Function: PasswordPage
+ *
+ * Component for setting up a password during account creation.
+ *
+ * Returns:
+ * JSX element representing the password setup page.
+ */
 const PasswordPage = () => {
     const router = useRouter();
     const dispatch = useDispatch();
@@ -41,6 +48,14 @@ const PasswordPage = () => {
         }
     }, [token, router.isReady, dispatch]);
 
+    /**
+     * Function: handleSubmit
+     *
+     * Handles the form submission for setting up the password.
+     *
+     * Parameters:
+     * e - event object from the form submission.
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {

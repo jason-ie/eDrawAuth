@@ -1,11 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+// Create an API service for authentication-related endpoints
 export const authApi = createApi({
     reducerPath: 'authApi', // Lets Redux know which slice is associated with auth
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3000/api',
+        baseUrl: 'http://localhost:3000/api', // Base URL for all API requests
     }),
     endpoints: (builder) => ({
+        // Endpoint for user registration
         register: builder.mutation({
             query: (userData) => ({
                 url: '/auth/register',
@@ -13,6 +15,7 @@ export const authApi = createApi({
                 body: userData,
             }),
         }),
+        // Endpoint for email verification
         verify: builder.mutation({
             query: (verifyData) => ({
                 url: '/auth/verify',
@@ -20,6 +23,7 @@ export const authApi = createApi({
                 body: verifyData,
             }),
         }),
+        // Endpoint for user login
         login: builder.mutation({
             query: (credentials) => ({
                 url: '/auth/login',
@@ -27,6 +31,7 @@ export const authApi = createApi({
                 body: credentials,
             }),
         }),
+        // Endpoint for requesting a password reset
         requestPasswordReset: builder.mutation({
             query: (data) => ({
                 url: '/auth/forgot-password',
@@ -34,6 +39,7 @@ export const authApi = createApi({
                 body: data,
             }),
         }),
+        // Endpoint for resending verification email
         requestResendEmail: builder.mutation({
             query: (userData) => ({
                 url: '/auth/resend-email',
@@ -41,6 +47,7 @@ export const authApi = createApi({
                 body: userData,
             }),
         }),
+        // Endpoint for submitting a support form
         submitSupportForm: builder.mutation({
             query: (formData) => ({
                 url: '/support/contact',
@@ -48,6 +55,7 @@ export const authApi = createApi({
                 body: formData,
             }),
         }),
+        // Endpoint for verifying password reset
         verifyPasswordReset: builder.mutation({
             query: (resetData) => ({
                 url: '/auth/verify',
@@ -55,6 +63,7 @@ export const authApi = createApi({
                 body: resetData,
             }),
         }),
+        // Endpoint for getting password requirements
         getPasswordRequirements: builder.query({
             query: () => ({
                 url: '/auth/password/requirements',
@@ -64,6 +73,7 @@ export const authApi = createApi({
     }),
 });
 
+// Export hooks for each endpoint to be used in components
 export const {
     useRegisterMutation,
     useVerifyMutation,

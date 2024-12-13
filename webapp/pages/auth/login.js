@@ -8,6 +8,14 @@ import { useLoginMutation } from '../../src/app/redux/api/authApi';
 import { setLoginCredentials, setError } from '../../src/app/redux/authSlice';
 import Link from 'next/link';
 
+/**
+ * Function: LoginPage
+ *
+ * Component for the login page. Handles user login functionality.
+ *
+ * Returns:
+ * JSX element representing the login page.
+ */
 function LoginPage() {
     const router = useRouter(); // Use useRouter instead of useNavigate
     const dispatch = useDispatch();
@@ -22,6 +30,14 @@ function LoginPage() {
         dispatch(setError(null));
     }, []);
 
+    /**
+     * Function: handleSubmit
+     *
+     * Handles the form submission for user login.
+     *
+     * Parameters:
+     * e - event object from the form submission.
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(setError(null));

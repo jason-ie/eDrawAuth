@@ -5,6 +5,14 @@ import PasswordBox from '../../src/app/components/PasswordBox';
 import { setError } from '../../src/app/redux/authSlice';
 import { useVerifyPasswordResetMutation } from '../../src/app/redux/api/authApi';
 
+/**
+ * Function: ResetPasswordPage
+ *
+ * Component for resetting the user's password. It verifies the reset token and allows the user to set a new password.
+ *
+ * Returns:
+ * JSX.Element - The rendered component.
+ */
 const ResetPasswordPage = () => {
     const router = useRouter();
     const dispatch = useDispatch();
@@ -16,6 +24,13 @@ const ResetPasswordPage = () => {
 
     const error = useSelector((state) => state.auth.error);
 
+    /**
+     * Function: useEffect
+     *
+     * Effect hook to handle the component's side effects. It checks if the router is ready and if the token is present.
+     * If the token is missing, it redirects the user to the login page. If the token is present, it sets the document title
+     * and clears any existing errors.
+     */
     useEffect(() => {
         if (router.isReady && !token) {
             router.push('/auth/login');
@@ -28,6 +43,16 @@ const ResetPasswordPage = () => {
         }
     }, [token, router.isReady, dispatch]);
 
+    /**
+     * Function: handleSubmit
+     *
+     * Handles the form submission for resetting the password. It verifies that the passwords match and then attempts to reset
+     * the password using the provided token. If successful, it redirects the user to the login page with a success message.
+     * If there is an error, it sets the error message in the state.
+     *
+     * Parameters:
+     * e - The form submission event.
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {

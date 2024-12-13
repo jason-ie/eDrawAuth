@@ -7,6 +7,14 @@ import EmailBox from '../../src/app/components/EmailBox';
 import { useRequestPasswordResetMutation } from '../../src/app/redux/api/authApi';
 import { setError } from '../../src/app/redux/authSlice';
 
+/**
+ * Function: ForgotPasswordPage
+ *
+ * Component for handling the forgot password functionality.
+ *
+ * Returns:
+ * React component
+ */
 const ForgotPasswordPage = () => {
     const router = useRouter();
     const dispatch = useDispatch();
@@ -15,6 +23,14 @@ const ForgotPasswordPage = () => {
     const error = useSelector((state) => state.auth.error);
     const [requestReset, { isLoading }] = useRequestPasswordResetMutation();
 
+    /**
+     * Function: useEffect
+     *
+     * Sets the document title and resets error state when the router is ready.
+     *
+     * Parameters:
+     * None
+     */
     useEffect(() => {
         if (router.isReady) {
             document.title = 'Forgot Password | eDraw';
@@ -22,6 +38,14 @@ const ForgotPasswordPage = () => {
         }
     }, [router.isReady, dispatch]);
 
+    /**
+     * Function: handleSubmit
+     *
+     * Handles the form submission for requesting a password reset.
+     *
+     * Parameters:
+     * e: event object
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(setError(null));

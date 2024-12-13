@@ -13,6 +13,12 @@ import {
 } from '../../src/app/redux/authSlice';
 import { useRouter } from 'next/router';
 
+/**
+ * Function: SignupPage
+ *
+ * Renders the signup page with form inputs for first name, last name, email, and license agreement.
+ * Handles form submission and registration logic.
+ */
 export const SignupPage = () => {
     // Redux hooks
     // const navigate = useNavigate();
@@ -32,6 +38,14 @@ export const SignupPage = () => {
         setError(null);
     }, []);
 
+    /**
+     * Function: isFormValid
+     *
+     * Checks if the form inputs are valid.
+     *
+     * Returns:
+     * Boolean indicating whether the form is valid.
+     */
     const isFormValid = () => {
         return (
             email.trim() !== '' &&
@@ -41,7 +55,14 @@ export const SignupPage = () => {
         );
     };
 
-    // Handle form submission
+    /**
+     * Function: handleSubmit
+     *
+     * Handles the form submission, performs validation, and triggers the registration API call.
+     *
+     * Parameters:
+     * e: Event object from the form submission.
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(setError(''));
@@ -53,12 +74,6 @@ export const SignupPage = () => {
         }
 
         try {
-            // console.log('Initiating registration...', {
-            //     email,
-            //     firstName,
-            //     lastName,
-            // });
-
             /**
              * Calling register triggers registration API call
              * Sends email, firstname, lastname to backend using useRegisterMutation
