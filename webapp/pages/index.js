@@ -1,102 +1,198 @@
-import { useEffect, useState } from 'react';
-import { getedrawData } from '../src/app/utils/api';
-import { Container, Grid, Button } from '../src/app/components/muiComponents';
+// pages/index.js
+import Link from 'next/link';
+import { useEdrawData } from '../src/app/utils/EdrawDataContext';
+import './home.css';
+import {
+    Box,
+    Container,
+    Grid,
+    Button,
+} from '../src/app/components/muiComponents';
+import { splitAndHighlightMultiple } from '../src/app/utils/EdrawDataContext';
+
 
 export default function Home() {
-    const [edrawData, setEdrawData] = useState(null);
+    const homePageData = useEdrawData('/api/home-page');
 
-    useEffect(() => {
-        async function fetchData() {
-            const data = await getedrawData('/api/home-page');
-            setEdrawData(data.data);
-        }
-        fetchData();
-    }, []);
-
-    if (!edrawData) return <div>Loading...</div>;
-
+    if (!homePageData) return <div>Loading...</div>;
     const {
-        Title: edrawTitle,
+        Title,
         Description,
         WhyeDraw,
         WhyeDrawDesc,
         WhyeDrawSubHeading,
         Feature1,
-    } = edrawData;
-    const titleParts = edrawTitle?.split('e-Draw') || [];
+        Benefit1,
+        Benefit2,
+        Benefit3,
+        Feature1Heading,
+        Feature2heading,
+        Feature3Heading,
+        FeatureDesc1,
+        FeatureDesc2,
+        FeatureDesc3,
+    } = homePageData;
 
+    const highlightWords = ['e-Draw'];
+    const highlightWords1 = ['flexibility', 'scalability']
     return (
-        <div className="min-h-screen bg-white">
-            <Container className="py-24">
-                {' '}
-                {/* Added padding for navbar */}
-                <Grid container spacing={4}>
-                    <Grid item xs={12} md={7}>
-                        <h1 className="text-4xl font-bold mb-6">
-                            {titleParts.map((part, index) => (
-                                <span key={index}>
-                                    {part}
-                                    {index < titleParts.length - 1 && (
-                                        <span className="text-primary">
-                                            e-Draw
-                                        </span>
-                                    )}
-                                </span>
-                            ))}
-                        </h1>
-                        <p className="text-lg mb-8">{Description}</p>
-                        <div className="space-x-4">
-                            <Button
-                                variant="contained"
-                                className="bg-primary hover:bg-primary/90"
-                            >
-                                Get Started Free
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                className="border-primary text-primary hover:bg-primary/5"
-                            >
-                                Explore Features
-                            </Button>
+        <div className='text'>
+            <div className='container justify-center'>
+                <div className='grid grid-cols-12 gap-4'>
+                    <div className="col-span-6 align-center">
+                        <div className='pt-8'>
+                            <h1>{splitAndHighlightMultiple(Title, highlightWords)}</h1>
                         </div>
-                    </Grid>
-                    <Grid item xs={12} md={5}>
-                        <div className="relative">
-                            <img
-                                src="/Vector2.png"
-                                alt="Vector 2"
-                                className="w-full"
-                            />
-                            <img
-                                src="/Vector3.png"
-                                alt="Vector 3"
-                                className="absolute top-16 left-8 w-3/4"
-                            />
+                        <div className="font-18 pt-8">
+                            {Description}{splitAndHighlightMultiple(Description, highlightWords1)}
                         </div>
-                    </Grid>
-                </Grid>
-            </Container>
+                        <div className='pt-8'>
+                            <Link href="/features">
+                                <button className="features-btn p-2 text-base rounded mr-20">
+                                    Explore Features
+                                </button>
+                            </Link>
+                            <Link href='/auth/signup'>
+                            <button className='free-btn p-2 text-base rounded ml-10 ' >  Get Started For Free</button>
+                            </Link>
 
-            {/* Why eDraw Section */}
-            <div className="bg-gray-50 py-24">
-                <Container>
-                    <Grid container spacing={6}>
-                        <Grid item xs={12} md={5}>
+                        </div>
+                    </div>
+                    <div className="col-span-6 justify-center">
+                        <img src="/Frame 64.png" alt="Vector 2" />
+                    </div>
+                </div>
+            </div>
+            <div className='grey-bg'>
+                <div className='container text-center'>
+                    <div className='grid grid-cols-12 gap-4'>
+                        <div className="col-span-6 justify-center">
+                            <img src="/vector4.png" alt="Vector 2" />
+                        </div>
+                        <div className="col-span-6 align-center">
+                            <h2 >{WhyeDraw}</h2>
+                            <hr className="hr m-4"></hr>
+                            <h3 className='mb-4'>{WhyeDrawSubHeading}</h3>
+                            <p className="font-18">{WhyeDrawDesc}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className='container justify-center'>
+                <div className='grey-card'>
+                    <h2>Features</h2>
+                    <hr className="Features-hr"></hr>
+                    <div className='grid grid-cols-12'>
+                        <div className='col-span-4'>
+                            <h4>{Feature1Heading}</h4>
+                            <img src="/vector5.png" alt="Vector 2" />
+                            <div className="features-text">
+                                {FeatureDesc1}
+                            </div>
+                        </div>
+                        <div className='col-span-4'>
+                            <h4>{Feature2heading}</h4>
+                            <img src="/vector6.png" alt="Vector 2" />
+                            <div className="features-text">
+                                {FeatureDesc2}
+                            </div>
+                        </div>
+                        <div className='col-span-4'>
+                            <h4>{Feature3Heading}</h4>
                             <img
-                                src="/vector4.png"
-                                alt="Vector 4"
-                                className="w-full"
+                                className="share-img"
+                                src="/vector7.png"
+                                alt="Vector 2"
                             />
-                        </Grid>
-                        <Grid item xs={12} md={7}>
-                            <h2 className="text-3xl font-bold mb-6">
-                                {WhyeDraw}
-                            </h2>
-                            <p className="text-lg mb-4">{WhyeDrawDesc}</p>
-                            <p className="text-lg">{WhyeDrawSubHeading}</p>
-                        </Grid>
-                    </Grid>
-                </Container>
+                            <div className="features-text">
+                                {FeatureDesc3}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div className='container justify-center'>
+                <div className='grid grid-cols-12'>
+                    <div className='col-span-7 align-center'>
+                        <h2> {WhyeDraw}</h2>
+                        <hr className="hr2"></hr>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
+                        <p> {WhyeDrawDesc}</p>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
+                        <p> {WhyeDrawDesc}</p>
+                    </div>
+                    <div className='col-span-4 text-center'>
+                        <img src="/vector8.png" alt="Vector 2" />
+                    </div>
+                </div>
+            </div>
+            <div className='grey-bg'>
+                <div className='container'>
+                    <div className='grid grid-cols-12'>
+                        <div className='col-span-5'>
+                            <img src="/vector9.png" alt="Vector 2" />
+                        </div>
+                        <div className='col-span-7 align-center'>
+                            <h2> {WhyeDraw}</h2>
+                            <hr className="hr2"></hr>
+                            <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
+                            <p> {WhyeDrawDesc}</p>
+                            <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
+                            <p> {WhyeDrawDesc}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div className='container justify-center'>
+                <div className='grid grid-cols-12'>
+                    <div className='col-span-7 align-center'>
+                        <h2> {WhyeDraw}</h2>
+                        <hr className="hr2"></hr>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
+                        <p> {WhyeDrawDesc}</p>
+                        <h4 className='my-4'>{WhyeDrawSubHeading}</h4>
+                        <p> {WhyeDrawDesc}</p>
+                    </div>
+                    <div className='col-span-4 text-center'>
+                        <img src="/vector10.png" alt="Vector 2" />
+                    </div>
+                </div>
+            </div>
+            <div className='grey-bg'>
+                <div className='grid-cols-1'></div>
+            </div>
+            <div className='grey-bg'>
+                <h2 className='pt-8'>Benefits</h2>
+                <hr className="Features-hr"></hr>
+                <div className='grid container grid-cols-12'>
+                    <div className='col-span-6'>
+                        <p>
+                            {Benefit1}
+                        </p>
+                    </div>
+                    <div className='col-span-6'>
+                        <img src="/vector11.png" alt="Vector 2" />
+                    </div>
+                    <div className='col-span-6'>
+
+                        <img src="/vector11.png" alt="Vector 2" />
+                    </div>
+                    <div className='col-span-6'>
+                        <p>
+                            {Benefit2}
+                        </p>
+                    </div>
+                    <div className='col-span-6'>
+                        <p>
+                            {Benefit3}
+                        </p>
+                    </div>
+                    <div className='col-span-6'>
+                        <img src="/vector11.png" alt="Vector 2" />
+                    </div>
+                </div>
             </div>
         </div>
     );

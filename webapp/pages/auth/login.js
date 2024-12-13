@@ -8,6 +8,14 @@ import { useLoginMutation } from '../../src/app/redux/api/authApi';
 import { setLoginCredentials, setError } from '../../src/app/redux/authSlice';
 import Link from 'next/link';
 
+/**
+ * Function: LoginPage
+ *
+ * Component for the login page. Handles user login functionality.
+ *
+ * Returns:
+ * JSX element representing the login page.
+ */
 function LoginPage() {
     const router = useRouter(); // Use useRouter instead of useNavigate
     const dispatch = useDispatch();
@@ -22,6 +30,14 @@ function LoginPage() {
         dispatch(setError(null));
     }, []);
 
+    /**
+     * Function: handleSubmit
+     *
+     * Handles the form submission for user login.
+     *
+     * Parameters:
+     * e - event object from the form submission.
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(setError(null));
@@ -48,6 +64,14 @@ function LoginPage() {
     return (
         <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
             <div
+                className="absolute inset-y-0 left-0 w-1/2"
+                style={{
+                    backgroundImage: 'url(/grid.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'left',
+                }}
+            />
+            <div
                 className="absolute inset-y-0 right-0 w-1/2"
                 style={{
                     backgroundImage: 'url(/login-bg.png)',
@@ -60,7 +84,7 @@ function LoginPage() {
 
             <div className="relative bg-white w-full max-w-2xl mx-auto sm:p-12 rounded-2xl shadow-lg border border-gray-150 m-4">
                 <img
-                    src="/e-draw_logo.png"
+                    src="/e-draw_logo1.png"
                     alt="Edraw Logo"
                     className="w-[120px] h-[120px] mx-auto mb-4 object-cover"
                 />

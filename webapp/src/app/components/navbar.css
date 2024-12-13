@@ -1,33 +1,82 @@
-.navbar-bg{
-    background-color: white;
+.navbar-bg {
+  background-color: white;
+  transition: color 0.3s ease;
 }
-.navbar{
+
+.navbar {
   max-width: 1400px !important;
 
 }
+
 .navbar-bg a {
-    text-decoration: none !important;
-    color: #3A3A3A;
-    transition: color 0.3s ease;
-  }
+  text-decoration: none !important;
+  color: #3A3A3A;
+  transition: color 0.3s ease;
+}
 
-  .logo{
-    height: 3rem;
-    margin-top: 8px;
+.logo {
+  height: 3rem;
+  margin-top: 8px;
 
-  }
+}
 
-  .active-link {
-    color: #D32F2F; 
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+.active-link {
+  color: #D32F2F !important;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-scrolled .active-link {
+  color: #000000 !important;
 }
 
 
 
 .navbar-bg a:hover {
-    color: #A1A4AC; /* Hover color for links */
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: #A1A4AC;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signupbtn {
+  align-content: center;
+}
+
+.signupbtnclr {
+  background-color: #D32F2F;
+  color: white;
+  font-size: 14px;
+}
+
+.navbar-scrolled .signupbtnclr {
+  background-color: #ffffff;
+  color: #D32F2F;
+  font-size: 14px;
+}
+
+.navbar-bg {
+  transition: background-color 0.3s ease;
+}
+
+.navbar-bg.navbar-scrolled {
+  background-color: #D32F2F;
+  color: white;
+}
+
+
+.navbar-bg.navbar-scrolled a {
+  color: white;
+}
+
+.navbar-scrolled .logoscroll {
+  background: white;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.container {
+  max-width: 1400px;
+  place-items: center;
+  place-content: center;
 }

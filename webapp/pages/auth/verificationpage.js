@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter instead of useNavigate
-import loginBg from '../../public/login-bg.png';
+import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import { FiRefreshCw } from 'react-icons/fi';
 import { setError } from '../../src/app/redux/authSlice';
 import { useRequestResendEmailMutation } from '../../src/app/redux/api/authApi';
 
 const VerificationPage = () => {
-    const router = useRouter(); // Use useRouter instead of useNavigate
+    const router = useRouter();
     const dispatch = useDispatch();
     const [countdown, setCountdown] = useState(30);
     const [canResend, setCanResend] = useState(false);
@@ -20,6 +19,14 @@ const VerificationPage = () => {
     );
     const error = useSelector((state) => state.auth.error);
 
+    /**
+     * Function: useEffect
+     *
+     * Sets the document title and starts a countdown timer for enabling the resend button.
+     *
+     * Parameters:
+     * None
+     */
     useEffect(() => {
         document.title = 'eDraw - Verify Your Email';
 
@@ -37,6 +44,14 @@ const VerificationPage = () => {
         return () => clearInterval(timer);
     }, [email]);
 
+    /**
+     * Function: handleResendEmail
+     *
+     * Handles the resend email functionality. Dispatches actions to set error state and requests to resend the email.
+     *
+     * Parameters:
+     * None
+     */
     const handleResendEmail = async () => {
         console.log('handle resend clicked');
         if (!canResend) return;
@@ -82,6 +97,14 @@ const VerificationPage = () => {
         <div className="h-screen w-full flex items-center justify-center overflow-hidden fixed inset-0">
             {/* Background Image */}
             <div
+                className="absolute inset-y-0 left-0 w-1/2"
+                style={{
+                    backgroundImage: 'url(/grid.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'left',
+                }}
+            />
+            <div
                 className="absolute inset-y-0 right-0 w-1/2"
                 style={{
                     backgroundImage: 'url(/login-bg.png)',
@@ -97,7 +120,7 @@ const VerificationPage = () => {
             <div className="relative bg-white w-full max-w-2xl mx-auto text-center sm:p-4 rounded-2xl shadow-lg border border-gray-150 m-4">
                 {/* Logo */}
                 <img
-                    src="/e-draw_logo.png"
+                    src="/e-draw_logo1.png"
                     alt="Edraw Logo"
                     className="w-[120px] h-[120px] mx-auto mb-4 object-cover"
                 />

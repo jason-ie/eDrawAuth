@@ -1,5 +1,4 @@
 .eifu-gif {
-    position: absolute;
     top: 60px;
     left: 35px;
     place-items: center;
@@ -14,7 +13,7 @@
     max-width: 1400px;
     place-items: center;
     place-content: center;
-    padding: 3rem 0rem;
+    padding: 2.5rem 0rem;
 }
 
 .overlap-img {
@@ -25,17 +24,20 @@
 
 .getStartedFree {
     background-color: #D32F2F;
+    font-size: 16px;
 }
 
 .exoloreFeatures {
     background-color: white;
     color: #D32F2F;
     border-color: #D32F2F;
+    margin-right: 5rem;
+    font-size: 16px;
 }
 
 .grey-bg {
     background-color: #F3F3F3;
-    text-align: center;
+    /* text-align: center; */
     justify-items: center;
 }
 
@@ -47,3 +49,75 @@
     padding: 2rem;
     text-align: center;
 }
+.hr{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 20rem;
+    justify-self: center;
+}
+.Features-hr{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 10rem;
+    justify-self: center;
+    margin: 1rem 0rem;
+}
+.grid1{
+    padding-top: 4rem;
+}
+
+.share-img{
+    height: 200px;
+}
+
+.hr2{
+    height: 4px;
+    background-color: #D32F2F;
+    border: none;
+    width: 20rem;
+    margin-top: 1rem;
+    /* justify-self: center; */
+}
+.img-center{
+    text-align: center;
+}
+
+.align-content-center{
+    align-content: center ;
+}
+
+.features-text{
+    width: 225px; 
+    text-align: center; 
+    margin: 1rem auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.features-btn{
+    background-color: white;
+    border-color: #D32F2F;
+    color: #D32F2F;
+}
+
+.free-btn {
+    background-color: #D32F2F; 
+    color: white;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+    border-color: #D32F2F;
+  }
+  
+  .free-btn:hover {
+    background-color: #cc2e2ed5; 
+  }
+  
+  .free-btn:active {
+    transform: scale(0.95); 
+  }
+
+  .justify-center{
+    justify-self: center;
+  }

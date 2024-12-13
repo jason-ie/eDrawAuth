@@ -27,6 +27,7 @@ body {
     font-family: 'San Francisco', Helvetica, Arial, san-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: #3a3a3a;
 }
 
 * {
@@ -46,6 +47,14 @@ a {
     }
 }
 
-.container {
-    padding: 24px;
+.font-18 {
+    /* font-size: 18px; */
 }
+.justify-center{
+    justify-self: center;
+  }
+
+  .align-center{
+    align-self: center;
+
+  }

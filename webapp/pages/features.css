@@ -1,0 +1,36 @@
+.container {
+    max-width: 1400px;
+    place-items: center;
+    place-content: center;
+    padding: 2.5rem 0rem;
+    text-align: center;
+    justify-content: center;
+}
+.grid1{
+    place-content: center;
+}
+.red-text{
+    color: #D32F2F;
+}
+
+.get-started{
+    background-color: #D32F2F;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.box{
+    background-image: url(../public//grid.png);
+    /* height: 30rem; */
+}
+
+.grey-card {
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    align-items: center;
+    margin: auto;
+    padding: 5rem;
+}
+.justify-center{
+    justify-self: center;
+  }

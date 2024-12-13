@@ -1,101 +1,80 @@
-import * as React from 'react';
-import Link from 'next/link';
-import './navbar.css';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import {
-    AppBar,
-    Box,
-    Toolbar,
-    Typography,
-    Container,
-} from '../components/muiComponents';
+import './navbar.css';
+
+const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/features' },
+    { label: 'About Us', path: '/about' },
+    // { label: 'Sign Up', path: '/auth/signup' },
+    // { label: 'Login', path: '/auth/login' },
+    { label: 'Support', path: '/support' },
+];
 
 function ResponsiveAppBar() {
     const router = useRouter();
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        <AppBar className="navbar-bg" position="fixed" elevation={0}>
-            <Container className="navbar">
-                <Toolbar disableGutters>
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Link href="/" passHref>
-                            <img
-                                className="logo"
-                                src="/e-draw_logo.png"
-                                alt="e-Draw Logo"
-                            />
-                        </Link>
-                    </Box>
+        <nav
+            className={`navbar-bg fixed top-0 left-0 w-full transition-all ${
+                scrolled ? 'navbar-scrolled shadow-md' : 'bg-transparent'
+            }`}
+        >
+            <div className="navbar mx-auto flex items-center justify-between pt-1 pb-1">
+                {/* Logo Section */}
+                <div>
+                    <a href="/" className="flex items-center">
+                        <img
+                            className={`logo ${scrolled ? 'logoscroll' : ''}`}
+                            src="/e-draw_logo.png"
+                            alt="e-Draw Logo"
+                        />
+                    </a>
+                </div>
 
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            flexGrow: 1,
-                        }}
-                    >
-                        <Link href="/" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/' ? 'active-link' : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Home
-                            </Typography>
-                        </Link>
-                        <Link href="/features" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/features'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Features
-                            </Typography>
-                        </Link>
-                        <Link href="/about" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/about'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                About Us
-                            </Typography>
-                        </Link>
-                        <Link href="/auth/signup" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/auth/signup'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Sign Up
-                            </Typography>
-                        </Link>
-                        <Link href="/auth/login" passHref>
-                            <Typography
-                                className={
-                                    router.pathname === '/auth/login'
-                                        ? 'active-link'
-                                        : ''
-                                }
-                                sx={{ my: 2, mx: 2 }}
-                            >
-                                Login
-                            </Typography>
-                        </Link>
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
+                {/* Navigation Links */}
+                <div className="flex items-center space-x-6">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.path}
+                            href={link.path}
+                            className={`text-lg font-medium pr-6 ${
+                                router.pathname === link.path
+                                    ? 'active-link'
+                                    : 'text-gray-600 hover:text-blue-500'
+                            }`}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+
+                    {/* Sign In Button */}
+                    <a href="/auth/login">
+                        <button
+                            className={`    ${
+                                scrolled
+                                    ? 'signupbtnclr border-none py-3 px-4 rounded '
+                                    : 'signupbtnclr   border-none py-3 px-4 rounded'
+                            }`}
+                        >
+                            Sign In
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </nav>
     );
 }
 
